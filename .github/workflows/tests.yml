@@ -12,8 +12,14 @@ on:
 
 jobs:
   ci:
+    name: Laravel (PHP ${{ matrix.php-versions }})
     runs-on: ubuntu-latest
-    environment: Testing
+    env:
+      DB_CONNECTION: pgsql
+      DB_HOST: localhost
+      DB_DATABASE: testing
+      DB_USERNAME: sail
+      DB_PASSWORD: password
     
     services:
       pgsql:
