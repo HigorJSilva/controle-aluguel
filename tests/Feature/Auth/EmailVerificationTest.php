@@ -34,7 +34,6 @@ test('email can be verified', function () {
     $response->assertRedirect(route('dashboard', absolute: false) . '?verified=1');
 });
 
-
 test('redirect user if  already had verified email', function () {
     $user = User::factory()->create();
 
@@ -48,11 +47,11 @@ test('redirect user if  already had verified email', function () {
 
     $response = $this->actingAs($user)->get($verificationUrl);
     $response->assertRedirect(route('dashboard', absolute: false) . '?verified=1');
-    
+
     // $response->assertStatus(200);
 });
 
-//./vendor/bin/pest --filter "redirect user if  already had verified email"
+// ./vendor/bin/pest --filter "redirect user if  already had verified email"
 test('email is not verified with invalid hash', function () {
     $user = User::factory()->unverified()->create();
 

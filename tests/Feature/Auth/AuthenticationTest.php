@@ -50,4 +50,3 @@ test('users can logout', function () {
 });
 
 // ./vendor/bin/pest tests/Feature/Auth/AuthenticationTest.php --filter "users can authenticate using the login screen"
-
