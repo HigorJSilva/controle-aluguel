@@ -19,7 +19,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
      */
     public function register(): void
     {
-        $passwordRules = app()->isProduction() ? ['required', 'string', 'confirmed', Rules\Password::defaults()] : ['required', 'string', 'confirmed'];
+        $passwordRules = ['required', 'string', 'confirmed', Rules\Password::defaults()];
 
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -38,29 +38,29 @@ new #[Layout('components.layouts.auth')] class extends Component {
 }; ?>
 
 <div class="flex flex-col gap-6">
-    <x-auth-header :title="__('Create an account')" :description="__('Enter your details below to create your account')" />
+    <x-auth-header :title="__('messages.create_account_title')" :description="__('messages.create_account_description')" />
 
     <!-- Session Status -->
     <x-auth-session-status class="text-center" :status="session('status')" />
 
     <form wire:submit="register" class="flex flex-col gap-6">
-        <x-mary-input :label="__('Name')" wire:model="name" :placeholder="__('Full name')" type="text" required autofocus
+        <x-mary-input :label="__('messages.input_name_label')" wire:model="name" :placeholder="__('messages.input_name_placeholder')" type="text" required autofocus
             autocomplete="name" />
 
-        <x-mary-input :label="__('Email address')" wire:model="email" placeholder="email@example.com" type="email" required
+        <x-mary-input :label="__('messages.input_email_label')" wire:model="email" :placeholder="__('messages.input_email_placeholder')" type="email" required
             autocomplete="email" />
 
-        <x-mary-password wire:model="password" :placeholder="__('Password')" :label="__('Password')" required right
+        <x-mary-password :label="__('messages.input_password_label')" wire:model="password" :placeholder="__('messages.input_password_placeholder')" required right
             autocomplete="new-password" />
 
-        <x-mary-password wire:model="password_confirmation" :placeholder="__('Confirm password')" :label="__('Confirm password')" required right
+        <x-mary-password :label="__('messages.input_password_confirmation_label')" wire:model="password_confirmation" :placeholder="__('messages.input_password_confirmation_placeholder')" required right
             autocomplete="new-password" />
 
-        <x-mary-button type="submit" :label="__('Create account')" class="btn-accent" />
+        <x-mary-button type="submit" :label="__('messages.create_account_button')" class="btn-accent" />
     </form>
 
     <div class="space-x-1 rtl:space-x-reverse text-center text-sm text-base-content">
-        {{ __('Already have an account?') }}
-        <x-mary-button :label="__('Log in')" :link="route('login')" class="btn-link link-accent link-hover pl-0" />
+        {{ __('messages.already_have_account') }}
+        <x-mary-button :label="__('messages.log_in_button')" :link="route('login')" class="btn-link link-accent link-hover pl-0" />
     </div>
 </div>

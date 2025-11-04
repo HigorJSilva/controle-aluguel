@@ -75,42 +75,42 @@ new #[Layout('components.layouts.auth')] class extends Component {
 }; ?>
 
 <div class="flex flex-col gap-6">
-    <x-auth-header :title="__('Log in to your account')"
-                   :description="__('Enter your email and password below to log in')"/>
+    <x-auth-header :title="__('messages.log_in_title')"
+                   :description="__('messages.log_in_description')"/>
 
     <x-auth-session-status class="text-center" :status="session('status')"/>
 
     <x-auth-session-status class="text-center" :status="session('error')" type="error"/>
 
     <form wire:submit="login" class="flex flex-col gap-6">
-        <x-mary-input :label="__('Email address')" wire:model="email" placeholder="email@example.com" type="email"
+        <x-mary-input :label="__('messages.input_email_label')" wire:model="email" placeholder="__('messages.input_email_placeholder')" type="email"
                       required
                       autofocus autocomplete="email"/>
 
         <div class="relative">
-            <x-mary-password wire:model="password" :placeholder="__('Password')" :label="__('Password')" required
+            <x-mary-password wire:model="password" :placeholder="__('messages.input_password_label')" :label="__('messages.input_password_placeholder')" required
                              right/>
             @if (Route::has('password.request'))
                 <div class="absolute end-0 top-0 text-sm">
-                    <x-mary-button :label="__('Forgot your password?')" :link="route('password.request')"
+                    <x-mary-button :label="__('messages.forgot_password')" :link="route('password.request')"
                                    class="btn-link link-accent link-hover pr-0"/>
                 </div>
             @endif
         </div>
 
-        <x-mary-checkbox :label="__('Remember me')" wire:model="remember"/>
+        <x-mary-checkbox :label="__('messages.remember_me')" wire:model="remember"/>
 
-        <x-mary-button type="submit" :label="__('Log in')" class="btn-accent"/>
+        <x-mary-button type="submit" :label="__('messages.log_in_button')" class="btn-accent"/>
     </form>
 
     @if (Route::has('register'))
         <div class="space-x-1 rtl:space-x-reverse text-center text-sm text-base-content">
             <div class="flex justify-center items-center gap-1">
-                {{ __('Don\'t have an account?') }}
-                <x-mary-button :label="__('Sign up')" :link="route('register')"
+                {{ __('messages.dont_have_account') }}
+                <x-mary-button :label="__('messages.sign_up')" :link="route('register')"
                                class="btn-link link-accent link-hover pl-0"/>
             </div>
-            <div class="divider">OR</div>
+            <div class="divider">{{__('messages.or')}}</div>
             <a href="{{ route('oauth.redirect', ['provider' => SocialiteProviders::GOOGLE]) }}"
                class="btn w-full bg-white hover:opacity-90 text-black border-[#e5e5e5]">
                 <svg aria-label="Google logo" width="16" height="16" xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +123,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
                         <path fill="#ea4335" d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"></path>
                     </g>
                 </svg>
-                {{ __('Login with Google') }}
+                {{ __('messages.log_in_google') }}
             </a>
         </div>
     @endif
