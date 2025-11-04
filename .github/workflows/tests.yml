@@ -12,7 +12,6 @@ on:
 
 jobs:
   ci:
-    name: Laravel (PHP ${{ matrix.php-versions }})
     runs-on: ubuntu-latest
     env:
       DB_CONNECTION: pgsql
