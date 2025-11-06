@@ -30,6 +30,9 @@ return [
     'cancel' => 'Cancelar',
     'save' => 'Salvar',
 
+    'created' => 'Cadastrado',
+    'error_on_create' => 'Erro ao cadastrar',
+
     'property_create_title' => 'Cadastrar Novo Imóvel',
     'property_create_description' => 'Preencha os dados do imóvel para adicionar ao sistema',
     'input_property_name_label' => 'Nome do Imóvel',
