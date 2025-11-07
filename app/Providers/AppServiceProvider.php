@@ -31,9 +31,6 @@ final class AppServiceProvider extends ServiceProvider
 
         $this->app->bind(BuscaCepStrategy::class, ViaCepStrategy::class);
 
-        Password::defaults(fn () => Password::min(8)
-            ->mixedCase());
-
         // Adicione esta condição para forçar o HTTP em ambientes que não sejam de produção
         if (config('app.env') !== 'production') {
             URL::forceScheme('http');
