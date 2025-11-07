@@ -8,13 +8,12 @@ use App\DTO\Imovel\CreateImovelDTO;
 use App\Http\Controllers\Controller;
 use App\Models\Endereco;
 use App\Models\Imovel;
-use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Throwable;
 
 final class CreateImovel extends Controller
 {
-
     public static function run(CreateImovelDTO $imovelDto): ?Imovel
     {
         DB::beginTransaction();
@@ -34,7 +33,7 @@ final class CreateImovel extends Controller
             DB::commit();
 
             return $imovel;
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             DB::rollBack();
             Log::error('CreateImovel error', ['Arquivo' => $e->getFile(), 'Linha' => $e->getLine(), 'Mensagem' => $e->getMessage(), 'Usuario' => $imovelDto->userId]);
 

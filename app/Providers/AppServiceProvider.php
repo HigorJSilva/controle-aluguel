@@ -10,7 +10,6 @@ use App\Services\CEP\ViaCepStrategy;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Validation\Rules\Password;
 
 final class AppServiceProvider extends ServiceProvider
 {

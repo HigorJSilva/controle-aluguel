@@ -24,7 +24,6 @@ dataset('max_length_fields', [
     'descricao max 2000' => ['descricao', (fake()->realText(2001))],
 ]);
 
-
 dataset('imovel_basico', [
     [
         'titulo' => 'Novo apartamento',
@@ -35,5 +34,5 @@ dataset('imovel_basico', [
         'cep' => '75020-040',
         'valorAluguelSugerido' => '1000.00',
         'status' => StatusImoveis::DISPONIVEL->value,
-    ]
+    ],
 ]);

@@ -4,23 +4,23 @@ declare(strict_types=1);
 
 namespace App\DTO\Imovel;
 
-final class CreateImovelDTO
+final readonly class CreateImovelDTO
 {
     public function __construct(
-        public readonly string $titulo,
-        public readonly string $tipo,
-        public readonly int $userId,
-        public readonly string $valorAluguelSugerido,
-        public readonly ?int $quartos = null,
-        public readonly ?int $banheiros = null,
-        public readonly ?string $area = null,
-        public readonly string $status,
-        public readonly ?string $descricao = null,
-        public readonly string $cep,
-        public readonly string $endereco,
-        public readonly string $bairro,
-        public readonly string $cidade,
-        public readonly string $estado,
+        public string $titulo,
+        public string $tipo,
+        public int $userId,
+        public string $valorAluguelSugerido,
+        public ?int $quartos,
+        public ?int $banheiros,
+        public ?string $area,
+        public string $status,
+        public ?string $descricao,
+        public string $cep,
+        public string $endereco,
+        public string $bairro,
+        public string $cidade,
+        public string $estado,
     ) {}
 
     public function toArray(): array

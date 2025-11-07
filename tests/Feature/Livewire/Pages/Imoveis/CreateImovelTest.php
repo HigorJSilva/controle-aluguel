@@ -31,7 +31,7 @@ beforeEach(function () {
             'ibge' => '5201108',
             'gia' => '',
             'ddd' => '62',
-            'siafi' => '9221'
+            'siafi' => '9221',
         ], 200),
     ]);
 });
@@ -40,7 +40,7 @@ it('tela de criar imóvel pode ser vista', function () {
     $response = $this->get('/imoveis/create');
 
     $response->assertStatus(200);
-    $response->assertSee(__("messages.property_create_title"));
+    $response->assertSee(__('messages.property_create_title'));
 });
 
 test('imóvel pode ser cadastrado sem dado obrigatório', function (string $field, string $rule) {
@@ -52,13 +52,13 @@ test('imóvel pode ser cadastrado sem dado obrigatório', function (string $fiel
 
 test('imóvel pode ser cadastrado', function () {
     livewire('pages.imoveis.create')
-        ->set('titulo',  'Novo apartamento')
-        ->set('tipo',  TiposImoveis::APARTAMENTO->value)
-        ->set('endereco',  'Rua Desembargador Jaime')
-        ->set('bairro',  'Centro')
-        ->set('cidade',  '5201108')
-        ->set('cep',  '75020-040')
-        ->set('valorAluguelSugerido',  '1000.00')
+        ->set('titulo', 'Novo apartamento')
+        ->set('tipo', TiposImoveis::APARTAMENTO->value)
+        ->set('endereco', 'Rua Desembargador Jaime')
+        ->set('bairro', 'Centro')
+        ->set('cidade', '5201108')
+        ->set('cep', '75020-040')
+        ->set('valorAluguelSugerido', '1000.00')
         ->set('status', StatusImoveis::DISPONIVEL->value)
         ->call('save')
         ->assertHasNoErrors()
@@ -91,23 +91,22 @@ test('retornar null ao falhar ao buscar CEP', function () {
     expect($result)->toBeNull();
 });
 
-
 it('retornar null se a Action de criação de imovel falhar', function () {
     $data = [
-        'titulo'   => 'Novo apartamento',
-        'tipo'  => '1',
-        'userId'  => 1,
-        'valorAluguelSugerido'  => '1000.00',
-        'quartos'  => 2,
-        'banheiros'  => 2,
-        'area'  => '80',
-        'status'  => '1',
+        'titulo' => 'Novo apartamento',
+        'tipo' => '1',
+        'userId' => 1,
+        'valorAluguelSugerido' => '1000.00',
+        'quartos' => 2,
+        'banheiros' => 2,
+        'area' => '80',
+        'status' => '1',
         'descricao' => '',
-        'cep'  => '75020040',
-        'endereco'  => 'Rua Desembargador Jaime',
-        'bairro'  => 'Centro',
-        'cidade'  => '5201108',
-        'estado'  => 'GO',
+        'cep' => '75020040',
+        'endereco' => 'Rua Desembargador Jaime',
+        'bairro' => 'Centro',
+        'cidade' => '5201108',
+        'estado' => 'GO',
     ];
     $dto = new CreateImovelDTO(...$data);
 
