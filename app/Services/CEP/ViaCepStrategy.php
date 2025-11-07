@@ -16,7 +16,7 @@ final class ViaCepStrategy implements BuscaCepStrategy
         try {
             $response = Http::timeout(10)->get("viacep.com.br/ws/$cep/json/");
         } catch (ConnectionException) {
-            Log::warn('ConsultasHelper::cep timeout');
+            Log::warning('ConsultasHelper::cep timeout');
 
             return null;
         }
