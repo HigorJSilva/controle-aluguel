@@ -52,6 +52,14 @@ return [
     'vacant_property_title' => 'Sem inquilino (Vago)',
     'next_payment_property_title' => 'N/A',
 
+    'property_show_title' => 'Informações da Propriedade',
+    'property_show_payment_history_title' => 'Histórico de Pagamentos',
+    'property_show_empty_payment_history_title' => 'Ainda não existem pagamento',
+    'property_show_paid_in_label' => 'Pago em',
+    'property_show_current_tenant_label' => 'Inquilino Atual',
+    'property_show_available_property_title' => 'Propriedade Disponível',
+    'property_show_available_property_subtitle' => 'Esta propriedade está disponível para aluguel',
+
     'input_property_search' => 'Buscar por nome ou endereço...',
     'select_property_status' => 'Todos os Status',
     'no_property_found_title' => 'Nenhuma propriedade encontrada',
@@ -87,4 +95,13 @@ return [
     'input_property_status_placeholder' => 'Selecione...',
     'input_property_description_label' => 'Descrição',
     'input_property_description_placeholder' => 'Descrição adicional do imóvel...',
+
+    'input_tenant_name_label' => 'Nome Completo',
+    'input_tenant_email_label' => 'Email',
+    'input_tenant_fone_label' => 'Telefone',
+    'new_tenant_button' => 'Adicionar Inquilino',
+
+    'input_payment_start_label' => 'Início do Contrato',
+    'input_payment_end_label' => 'Fim do Contrato',
+    'input_payment_next_label' => 'Próximo Pagamento',
 ];

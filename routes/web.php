@@ -29,7 +29,8 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('imoveis')->name('imoveis.')->group(function () {
         Volt::route('/', 'pages.imoveis.index')->name('index');
         Volt::route('/create', 'pages.imoveis.create')->name('create');
-        Volt::route('/{user}/edit', 'pages.imoveis.edit')->name('edit');
+        Volt::route('/{imovel}/edit', 'pages.imoveis.edit')->name('edit');
+        Volt::route('/{imovel}', 'pages.imoveis.show')->name('show');
     });
 });
 

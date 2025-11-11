@@ -52,6 +52,14 @@ return [
     'vacant_property_title' => 'Vacant',
     'next_payment_property_title' => 'N/A',
 
+    'property_show_title' => 'Property info',
+    'property_show_payment_history_title' => 'Payment History',
+    'property_show_empty_payment_history_title' => 'No Payment made',
+    'property_show_paid_in_label' => 'Paid in',
+    'property_show_current_tenant_label' => 'Current tenant',
+    'property_show_available_property_title' => 'Available propriedade',
+    'property_show_available_property_subtitle' => 'This property if available for leasing',
+
     'input_property_search' => 'Search by name or address...',
     'select_property_status' => 'All Statuses',
     'no_property_found_title' => 'No properties found',
@@ -85,4 +93,13 @@ return [
     'input_property_status_placeholder' => 'Status',
     'input_property_description_label' => 'Descrição',
     'input_property_description_placeholder' => 'Descrição adicional do imóvel...',
+
+    'input_tenant_name_label' => 'Full Name',
+    'input_tenant_email_label' => 'Email',
+    'input_tenant_fone_label' => 'Fone',
+    'new_tenant_button' => 'New Tenant',
+
+    'input_payment_start_label' => 'Leasing start',
+    'input_payment_end_label' => 'Leasing end',
+    'input_payment_next_label' => 'Next payment',
 ];
