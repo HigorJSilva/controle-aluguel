@@ -43,7 +43,7 @@ it('tela de criar imóvel pode ser vista', function () {
     $response->assertSee(__('messages.property_create_title'));
 });
 
-test('imóvel pode ser cadastrado sem dado obrigatório', function (string $field, string $rule) {
+test('imóvel não pode ser cadastrado sem dados obrigatórios', function (string $field, string $rule) {
     livewire('pages.imoveis.create', ['user' => $this->user])
         ->set($field, '')
         ->call('save')
