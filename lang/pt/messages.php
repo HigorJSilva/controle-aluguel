@@ -37,7 +37,7 @@ return [
     'deleted' => 'Excluído',
     'error_on_delete' => 'Erro ao excluir',
     'error_on_create' => 'Erro ao cadastrar',
-    
+
     'cleared_filters' => 'Filtros removidos.',
 
     'property_index_title' => 'Imóveis',

@@ -37,7 +37,7 @@ return [
     'deleted' => 'Deleted',
     'error_on_create' => 'Error on create',
     'error_on_delete' => 'Error on delete',
-    
+
     'cleared_filters' => 'Filters cleared.',
 
     'property_index_title' => 'Properties',
