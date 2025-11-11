@@ -87,6 +87,7 @@ new class extends Component
 
         if ($imovel) {
             $this->success(__("messages.created"), timeout: 5000, redirectTo: route('imoveis.index'));
+            $this->redirect('/imoveis', navigate: true);
             return;
         }
 
@@ -159,7 +160,7 @@ new class extends Component
 
 <x-mary-card>
     <x-mary-card>
-        <a href="{{ url()->previous() }}" class="inline-flex items-center text-base-content/70 hover:text-base-content text-sm mb-4">
+        <a href="{{ url()->previous() }}" wire:navigate class="inline-flex items-center text-base-content/70 hover:text-base-content text-sm mb-4">
             <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>
