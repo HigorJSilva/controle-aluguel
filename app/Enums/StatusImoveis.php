@@ -12,18 +12,6 @@ enum StatusImoveis: string
     case EM_MANUTENCAO = '4';
     case INDISPONIVEL = '5';
 
-    public static function fromLabel(string $label): ?self
-    {
-        return match (mb_strtolower($label)) {
-            'Disponível' => self::DISPONIVEL,
-            'Alugado' => self::ALUGADO,
-            'Aguandando locação' => self::AGUARDANDO_LOCACAO,
-            'Em manutenção' => self::EM_MANUTENCAO,
-            'Indisponível' => self::INDISPONIVEL,
-            default => null,
-        };
-    }
-
     public static function all(string $key = 'id', string $value = 'name'): array
     {
         return [

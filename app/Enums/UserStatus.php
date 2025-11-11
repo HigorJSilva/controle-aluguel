@@ -10,16 +10,6 @@ enum UserStatus: int
     case INACTIVE = 2;
     case SUSPENDED = 3;
 
-    public static function fromLabel(string $label): ?self
-    {
-        return match (mb_strtolower($label)) {
-            'active' => self::ACTIVE,
-            'inactive' => self::INACTIVE,
-            'suspended' => self::SUSPENDED,
-            default => null,
-        };
-    }
-
     public static function all(string $key = 'id', string $value = 'name'): array
     {
         return [

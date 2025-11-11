@@ -12,18 +12,6 @@ enum TiposImoveis: string
     case COMERCIAL = '4';
     case SALA_COMERCIAL = '5';
 
-    public static function fromLabel(string $label): ?self
-    {
-        return match (mb_strtolower($label)) {
-            'Apartamento' => self::APARTAMENTO,
-            'Kitnet' => self::KITNET,
-            'Casa' => self::CASA,
-            'Comercial' => self::COMERCIAL,
-            'Sala comercial' => self::SALA_COMERCIAL,
-            default => null,
-        };
-    }
-
     public static function all(string $key = 'id', string $value = 'name'): array
     {
         return [
