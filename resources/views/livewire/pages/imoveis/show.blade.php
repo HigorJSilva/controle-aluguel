@@ -16,7 +16,7 @@ new class extends Component {
 
     public function mount(Imovel $imovel): void
     {
-        if($this->imovel->user_id != Auth::user()->id){
+        if ($this->imovel->user_id != Auth::user()->id) {
             throw new NotFoundHttpException();
         }
 
@@ -48,14 +48,7 @@ new class extends Component {
 
                 {{-- 1. Card de Informações da Propriedade --}}
                 <x-mary-card class="shadow border border-base-300 relative">
-                    <x-mary-badge :value="App\Enums\StatusImoveis::tryFrom($imovel->status)?->label() ?? $imovel->status" @class([ 'absolute top-4 right-4' , 'badge-success'=> $imovel->status == App\Enums\StatusImoveis::ALUGADO->value,
-                        'badge-success badge-dash' => in_array($imovel->status,[
-                        StatusImoveis::INDISPONIVEL->value,
-                        StatusImoveis::AGUARDANDO_LOCACAO->value,
-                        StatusImoveis::EM_MANUTENCAO->value
-                        ]),
-                        'badge-warning' => $imovel->status == StatusImoveis::DISPONIVEL->value,
-                        ]) />
+                    <x-mary-badge :value="App\Enums\StatusImoveis::tryFrom($imovel->status)?->label() ?? $imovel->status" @class([ 'absolute top-4 right-4' , StatusImoveis::getCssClass($imovel->status)]) />
 
                         <h2 class="text-xl font-bold mb-4">{{__('messages.property_show_title')}}</h2>
 
@@ -88,14 +81,14 @@ new class extends Component {
                             {{-- Quartos, Banheiros, Área --}}
                             <div class="grid grid-cols-3 gap-4">
                                 <div class="flex items-center gap-2">
-                                    <x-mary-icon name="o-home" class="h-5 w-5 text-primary" />
+                                    <x-mary-icon name="lucide.bed-double" class="h-5 w-5 text-primary" />
                                     <div>
                                         <p class="text-sm text-base-content/70">{{__('messages.input_property_bedrooms_label')}}</p>
                                         <p class="font-semibold text-base-content">{{ $imovel->quartos ?? 0 }}</p>
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-2">
-                                    <x-mary-icon name="o-home" class="h-5 w-5 text-primary" />
+                                    <x-mary-icon name="lucide.bath" class="h-5 w-5 text-primary" />
                                     <div>
                                         <p class="text-sm text-base-content/70">{{__('messages.input_property_bathrooms_label')}}</p>
                                         <p class="font-semibold text-base-content">{{ $imovel->banheiros ?? 0 }}</p>

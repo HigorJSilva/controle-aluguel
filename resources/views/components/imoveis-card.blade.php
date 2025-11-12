@@ -1,13 +1,6 @@
 <x-mary-card class="flex flex-col relative shadow border border-base-300 group">
     <a href="{{ route('imoveis.show', $imovel->id) }}" wire:navigate>
-        <x-mary-badge :value="App\Enums\StatusImoveis::tryFrom($imovel->status)?->label() ?? $imovel->status" @class([ 'absolute top-4 right-4' , 'badge-success'=> $imovel->status == App\Enums\StatusImoveis::ALUGADO->value,
-            'badge-success badge-dash' => in_array($imovel->status,[
-            App\Enums\StatusImoveis::INDISPONIVEL->value,
-            App\Enums\StatusImoveis::AGUARDANDO_LOCACAO->value,
-            App\Enums\StatusImoveis::EM_MANUTENCAO->value
-            ]),
-            'badge-warning' => $imovel->status == App\Enums\StatusImoveis::DISPONIVEL->value,
-            ]) />
+        <x-mary-badge :value="App\Enums\StatusImoveis::tryFrom($imovel->status)?->label() ?? $imovel->status" @class([ 'absolute top-4 right-4' , App\Enums\StatusImoveis::getCssClass($imovel->status)]) />
 
             <!-- Corpo do Card -->
             <div class="flex-grow">

@@ -33,4 +33,16 @@ enum StatusImoveis: string
             self::INDISPONIVEL => 'Indisponível',
         };
     }
+
+    public static function getCssClass(string $status): string
+    {
+        return match ($status) {
+            self::ALUGADO->value => 'badge-success',
+            self::AGUARDANDO_LOCACAO->value => 'badge-success badge-dash',
+            self::INDISPONIVEL->value => 'badge-error',
+            self::EM_MANUTENCAO->value => 'badge-error badge-dash',
+            self::DISPONIVEL->value => 'badge-warning',
+            default => 'badge-error'
+        };
+    }
 }
