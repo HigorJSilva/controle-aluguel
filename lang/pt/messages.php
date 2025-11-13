@@ -34,6 +34,7 @@ return [
     'delete' => 'Sim, excluir',
 
     'created' => 'Cadastrado',
+    'edited' => 'Salvo',
     'deleted' => 'Excluído',
     'error_on_delete' => 'Erro ao excluir',
     'error_on_create' => 'Erro ao cadastrar',

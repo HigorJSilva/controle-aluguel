@@ -34,6 +34,7 @@ return [
     'delete' => 'Yes, delete',
 
     'created' => 'Created',
+    'edited' => 'Edited',
     'deleted' => 'Deleted',
     'error_on_create' => 'Error on create',
     'error_on_delete' => 'Error on delete',
