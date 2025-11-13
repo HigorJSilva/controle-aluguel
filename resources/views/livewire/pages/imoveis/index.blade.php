@@ -39,6 +39,7 @@ new class extends Component {
                     ->orWhereHas('endereco', fn(Builder $eq) => $eq->where('endereco', 'ilike', "%$this->search%"));
             })
             ->when($this->status, fn(Builder $q) => $q->where('status', $this->status))
+            ->orderBy('updated_at', 'desc')
             ->orderBy('created_at', 'desc')
             ->paginate(12);
     }
