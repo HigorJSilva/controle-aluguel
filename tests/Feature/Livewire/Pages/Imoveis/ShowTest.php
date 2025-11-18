@@ -31,13 +31,13 @@ it('componente de imovel pode ser visto', function () {
 
     $response->assertStatus(200);
     $response->assertSee($imovel->titulo);
-    $response->assertSee(TiposImoveis::tryFrom(strval($imovel->tipo))->label());
+    $response->assertSee(TiposImoveis::tryFrom((string) ($imovel->tipo))->label());
     $response->assertSee($imovel->user_id);
     $response->assertSee(number_format($imovel->valor_aluguel_sugerido ?? 0, 2, ',', '.'));
     $response->assertSee($imovel->quartos);
     $response->assertSee($imovel->banheiros);
     $response->assertSee($imovel->area . 'm²');
-    $response->assertSee(StatusImoveis::tryFrom(strval($imovel->status))->label());
+    $response->assertSee(StatusImoveis::tryFrom((string) ($imovel->status))->label());
     $response->assertSee($imovel->descricao);
 });
 

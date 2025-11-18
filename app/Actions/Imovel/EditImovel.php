@@ -27,7 +27,7 @@ final class EditImovel extends Controller
             $imovel->update($imovelPayload);
             $imovel->save();
 
-            if(!empty($endereco)){
+            if ($endereco instanceof Endereco) {
                 $endereco->update($enderecoPayload);
                 $endereco->save();
             }

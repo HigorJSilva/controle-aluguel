@@ -164,7 +164,7 @@ new class extends Component
         $value = preg_replace('/\D/', '', $value);
         if (mb_strlen($value) !== 8 || $this->imovel->endereco->cep === $value) {
             return;
-        }
+        } 
 
         $endereco = $buscaCepService->buscar($value);
 

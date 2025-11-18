@@ -23,17 +23,6 @@ enum StatusImoveis: string
         ];
     }
 
-    public function label(): string
-    {
-        return match ($this) {
-            self::DISPONIVEL => 'Disponível',
-            self::ALUGADO => 'Alugado',
-            self::AGUARDANDO_LOCACAO => 'Aguandando locação',
-            self::EM_MANUTENCAO => 'Em manutenção',
-            self::INDISPONIVEL => 'Indisponível',
-        };
-    }
-
     public static function getCssClass(string $status): string
     {
         return match ($status) {
@@ -43,6 +32,17 @@ enum StatusImoveis: string
             self::EM_MANUTENCAO->value => 'badge-error badge-dash',
             self::DISPONIVEL->value => 'badge-warning',
             default => 'badge-error'
+        };
+    }
+
+    public function label(): string
+    {
+        return match ($this) {
+            self::DISPONIVEL => 'Disponível',
+            self::ALUGADO => 'Alugado',
+            self::AGUARDANDO_LOCACAO => 'Aguandando locação',
+            self::EM_MANUTENCAO => 'Em manutenção',
+            self::INDISPONIVEL => 'Indisponível',
         };
     }
 }
