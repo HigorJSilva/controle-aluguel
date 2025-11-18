@@ -45,4 +45,11 @@ final class UserFactory extends Factory
             'email_verified_at' => null,
         ]);
     }
+
+    public function active(): self
+    {
+        return $this->state(fn (array $attributes): array => [
+            'status' => \App\Enums\UserStatus::ACTIVE,
+        ]);
+    }
 }

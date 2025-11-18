@@ -51,10 +51,12 @@ test('callback route redirects on login success', function () {
         ->andReturn('https://en.gravatar.com/userimage');
     Socialite::shouldReceive('driver->user')->andReturn($abstractUser);
 
-    SocialAccount::create(['provider_id' => $abstractUser->getId(),
+    SocialAccount::create([
+        'provider_id' => $abstractUser->getId(),
         'provider_name' => $this->provider->value,
         'user_id' => $user->id,
-        'avatar' => $abstractUser->getAvatar()]);
+        'avatar' => $abstractUser->getAvatar(),
+    ]);
 
     $response = $this->get("/oauth/{$this->provider->value}/callback");
     $response->assertRedirect();
@@ -64,6 +66,20 @@ test('callback route handles errors gracefully', function () {
     $response = $this->get("/oauth/{$this->provider->value}/callback");
 
     $response->assertRedirect(route('login'));
+    $response->assertSessionHas('error');
+});
+
+it('callback route handles errors gracefully when Exception', function () {
+    $exception = new Exception('Unauthorized');
+
+    $providerMock = Mockery::mock('Laravel\Socialite\Two\User');
+    $providerMock->shouldReceive('user')->andThrow($exception);
+
+    Socialite::shouldReceive('driver->user')
+        ->with('test-provider')
+        ->andReturn($providerMock);
+
+    $response = $this->get("/oauth/{$this->provider->value}/callback");
     $response->assertSessionHas('error');
 });
 

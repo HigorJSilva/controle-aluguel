@@ -83,7 +83,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
     <x-auth-session-status class="text-center" :status="session('error')" type="error"/>
 
     <form wire:submit="login" class="flex flex-col gap-6">
-        <x-mary-input :label="__('messages.input_email_label')" wire:model="email" placeholder="__('messages.input_email_placeholder')" type="email"
+        <x-mary-input :label="__('messages.input_email_label')" wire:model="email" :placeholder="__('messages.input_email_placeholder')" type="email"
                       required
                       autofocus autocomplete="email"/>
 

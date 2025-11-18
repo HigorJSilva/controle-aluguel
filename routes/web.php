@@ -25,6 +25,13 @@ Route::middleware(['auth'])->group(function () {
     //     Volt::route('/{user}/edit', 'pages.users.edit')->name('edit');
     //     // Add more user routes here as needed
     // });
+
+    Route::prefix('imoveis')->name('imoveis.')->group(function () {
+        Volt::route('/', 'pages.imoveis.index')->name('index');
+        Volt::route('/create', 'pages.imoveis.create')->name('create');
+        Volt::route('/{imovel}/edit', 'pages.imoveis.edit')->name('edit');
+        Volt::route('/{imovel}', 'pages.imoveis.show')->name('show');
+    });
 });
 
 require __DIR__ . '/auth.php';
