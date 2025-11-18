@@ -103,4 +103,6 @@ return [
     'input_payment_start_label' => 'Leasing start',
     'input_payment_end_label' => 'Leasing end',
     'input_payment_next_label' => 'Next payment',
+
+    'user_inactive' => 'Inactive user. Please check your subscription status',
 ];

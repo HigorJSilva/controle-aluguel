@@ -6,6 +6,7 @@ use App\Enums\StatusImoveis;
 use App\Enums\TiposImoveis;
 use App\Helpers\Cidades;
 use App\Services\CEP\BuscaCepStrategy;
+use App\Traits\ExceptionComponent;
 use Illuminate\Support\Collection;
 use Livewire\Volt\Component;
 use Mary\Traits\Toast;
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 
 new class extends Component
 {
-    use Toast;
+    use Toast, ExceptionComponent;
 
     public string $titulo = '';
 

@@ -1,14 +1,13 @@
 <?php
 
-use App\Actions\Imovel\CreateImovel;
 use App\Actions\Imovel\EditImovel;
-use App\DTO\Imovel\CreateImovelDTO;
 use App\DTO\Imovel\EditImovelDTO;
 use App\Enums\StatusImoveis;
 use App\Enums\TiposImoveis;
 use App\Helpers\Cidades;
 use App\Models\Imovel;
 use App\Services\CEP\BuscaCepStrategy;
+use App\Traits\ExceptionComponent;
 use Illuminate\Support\Collection;
 use Livewire\Volt\Component;
 use Mary\Traits\Toast;
@@ -17,7 +16,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 new class extends Component
 {
-    use Toast;
+    use Toast, ExceptionComponent;
 
     public string $titulo = '';
 
