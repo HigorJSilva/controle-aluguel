@@ -96,7 +96,7 @@ new class extends Component {
     public function delete(int $id): void
     {
         try {
-            Imovel::findOrFail($id)->delete();
+            Imovel::where(['id' => $id, 'user_id' => Auth::user()->id])->first()->delete();
             $this->success(__('messages.deleted'));
 
             unset($this->imoveis);
