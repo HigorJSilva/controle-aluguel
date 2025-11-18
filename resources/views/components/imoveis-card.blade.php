@@ -1,4 +1,5 @@
-<x-mary-card class="flex flex-col relative shadow border border-base-300 group">
+<x-mary-card class="flex flex-col relative shadow border border-base-300 group hover:shadow-lg hover:scale-[1.02] hover:-translate-y-1
+        hover:border-base-300 transition-transform duration-200">
     <a href="{{ route('imoveis.show', $imovel->id) }}" wire:navigate>
         <x-mary-badge :value="App\Enums\StatusImoveis::tryFrom($imovel->status)?->label() ?? $imovel->status" @class([ 'absolute top-4 right-4' , App\Enums\StatusImoveis::getCssClass($imovel->status)]) />
 
