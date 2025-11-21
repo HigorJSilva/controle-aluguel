@@ -199,7 +199,7 @@ new class extends Component
             {{ __("messages.back") }}
         </a>
 
-        <x-mary-card>
+       <x-mary-card class="shadow border border-base-300">
             <!-- <div wire:loading> -->
             <x-mary-hr />
             <!-- </div> -->

@@ -168,7 +168,7 @@ new class extends Component
             {{ __("messages.back") }}
         </a>
 
-        <x-mary-card>
+        <x-mary-card class="shadow border border-base-300">
             <div class="px-6 pt-6">
                 <h2 class="text-xl font-semibold text-base-content">{{ __("messages.property_create_title") }}</h2>
                 <p class="text-sm text-base-content/70 mt-1">{{ __("messages.property_create_description") }}</p>
