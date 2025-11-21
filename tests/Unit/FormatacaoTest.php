@@ -8,8 +8,9 @@ test('Cidades devem retornar dado um id válido', function ($documento) {
 
     $formatado = Formatacao::documento($documento);
 
-    if (strlen($documento) === 11) {
+    if (mb_strlen($documento) === 11) {
         expect($formatado)->toBe('488.479.297-17');
+
         return;
     }
 
@@ -17,7 +18,7 @@ test('Cidades devem retornar dado um id válido', function ($documento) {
 })->with(
     [
         'para cnpj' => ['documento' => '12346238268040'],
-        'para CPF' => ['documento' => '48847929717']
+        'para CPF' => ['documento' => '48847929717'],
     ]
 );
 
@@ -25,15 +26,16 @@ test('Cidades devem retornar null dado um id inválido', function ($telefone) {
 
     $formatado = Formatacao::telefone($telefone);
 
-     if (strlen($telefone) === 11) {
+    if (mb_strlen($telefone) === 11) {
         expect($formatado)->toBe('(62) 99999-9999');
+
         return;
-     }
+    }
 
     expect($formatado)->toBe('(62) 9999-9999');
 })->with(
     [
         'para cnpj' => ['telefone' => '62999999999'],
-        'para CPF' => ['telefone' => '6299999999']
+        'para CPF' => ['telefone' => '6299999999'],
     ]
-);;
+);
