@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Inquilino extends Model
 {
-    /** @use HasFactory<\Database\Factories\InquilinoFactory> */
+
     use HasFactory, SoftDeletes;
 
     protected $table = 'inquilinos';
