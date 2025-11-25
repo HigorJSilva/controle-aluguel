@@ -32,6 +32,7 @@ return [
     'edit' => 'Editar',
     'remove' => 'Excluir',
     'delete' => 'Sim, excluir',
+    'not_specified' => 'Não especificado',
 
     'created' => 'Cadastrado',
     'edited' => 'Salvo',
@@ -107,4 +108,13 @@ return [
     'input_payment_next_label' => 'Próximo Pagamento',
 
     'user_inactive' => 'Usuário inativo. Consulte sua a validade de sua  assinatura',
+
+    'tenant_index_title' => 'Inquilinos',
+    'tenant_index_subtitle' => 'Gerencie os inquilinos cadastrados no sistema',
+    'new_tenant_button' => 'Novo inquilino',
+    'input_tenant_search' => 'Buscar por nome ou documento',
+    'no_tenant_found_title' => 'Nenhum inquilino encontrado',
+    'no_tenant_found_subtitle' => 'Tente ajustar os filtros ou adicione uma novo inquilino',
+    'delete_tenant_modal_title' => 'Excluir Inquilino',
+    'delete_tenant_modal_subtitle' => 'Tem certeza? Esta ação não poderá ser desfeita.',
 ];
