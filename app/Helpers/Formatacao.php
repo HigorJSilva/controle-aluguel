@@ -32,9 +32,11 @@ final class Formatacao
     public static function retornarDigitos(array | string $value)
     {
         if (is_array($value)) {
-            return array_walk($value, function (&$item) {
+            array_walk($value, function (&$item) {
                 $item = preg_replace('/\D/', '', $item);
             });
+
+            return $value;
         }
 
         return preg_replace('/\D/', '', $value);
