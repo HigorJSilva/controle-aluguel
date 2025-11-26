@@ -5,6 +5,7 @@ use App\DTO\Imovel\CreateImovelDTO;
 use App\Enums\StatusImoveis;
 use App\Enums\TiposImoveis;
 use App\Helpers\Cidades;
+use App\Helpers\Formatacao;
 use App\Services\CEP\BuscaCepStrategy;
 use App\Traits\ExceptionComponent;
 use Illuminate\Support\Collection;
@@ -79,7 +80,7 @@ new class extends Component
     {
         $validateFields = $this->validate();
         $validateFields['userId'] = Auth::user()->id;
-        $validateFields['cep'] = preg_replace('/\D/', '', $validateFields['cep']);
+        $validateFields['cep'] = Formatacao::retornarDigitos($validateFields['cep']);
         
 
         $imovelDto = new CreateImovelDTO(...$validateFields);
@@ -129,7 +130,7 @@ new class extends Component
 
     public function updatedCep(string $value, BuscaCepStrategy $buscaCepService)
     {
-        $value = preg_replace('/\D/', '', $value);
+        $value = Formatacao::retornarDigitos($value);
         if (mb_strlen($value) !== 8) {
             return;
         }
