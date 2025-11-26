@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services\Documentos;
 
 use App\Helpers\Formatacao;
@@ -22,7 +24,7 @@ final class CnpjWsStrategy implements BuscaDocumentoStrategy
             return null;
         }
 
-        if (!$response->ok()) {
+        if (! $response->ok()) {
             return null;
         }
 

@@ -43,8 +43,9 @@ test('Formatacao::telefone deve retornar valor de telefone formatado para fronte
 test('Formatacao::retornarDigitos deve retornar valores sem formatação', function ($value) {
     $formatado = Formatacao::retornarDigitos($value);
 
-    if(is_array($formatado)){
+    if (is_array($formatado)) {
         expect($formatado)->each->toBeDigits();
+
         return;
     }
 
@@ -54,6 +55,6 @@ test('Formatacao::retornarDigitos deve retornar valores sem formatação', funct
         'para CPF' => ['value' => '488.479.297-17'],
         'para CNPJ' => ['value' => '12.346.238/2680-40'],
         'para CEP' => ['value' => '71920-230'],
-        'para array' => ['value' => ['488.479.297-17', '12.346.238/2680-40', '71920-230' ]],
+        'para array' => ['value' => ['488.479.297-17', '12.346.238/2680-40', '71920-230']],
     ]
 );

@@ -29,7 +29,7 @@ final class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Route::bind('provider', fn(string $value) => SocialiteProviders::from($value)->make());
+        Route::bind('provider', fn (string $value) => SocialiteProviders::from($value)->make());
 
         // Adicione esta condição para forçar o HTTP em ambientes que não sejam de produção
         if (config('app.env') !== 'production') {

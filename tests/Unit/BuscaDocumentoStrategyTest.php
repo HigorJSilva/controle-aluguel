@@ -11,18 +11,17 @@ uses(TestCase::class);
 
 const CNPJ_CORREIOS = '34.028.316/0001-03';
 
-
 test('Deve retorar dados da empresa caso CNPJ seja válido', function () {
 
     $service = app()->make(BuscaDocumentoStrategy::class);
     $baseUrl = $service->baseUrl;
 
     Http::fake([
-        $baseUrl . "34028316000103" => Http::response([
+        $baseUrl . '34028316000103' => Http::response([
             'estabelecimento' => [
                 'telefone1' => '32144316',
-                'email' => 'acgtescnpj@correios.com.br'
-            ]
+                'email' => 'acgtescnpj@correios.com.br',
+            ],
         ], 200),
     ]);
 
@@ -30,8 +29,8 @@ test('Deve retorar dados da empresa caso CNPJ seja válido', function () {
 
     expect($response)->not()->toBeNull();
 
-    expect($response["estabelecimento"]["telefone1"]);
-    expect($response["estabelecimento"]["email"]);
+    expect($response['estabelecimento']['telefone1']);
+    expect($response['estabelecimento']['email']);
 });
 
 test('Deve retorar null caso tenha timeout ou ConnectionException', function () {
@@ -39,7 +38,7 @@ test('Deve retorar null caso tenha timeout ou ConnectionException', function () 
     $baseUrl = $service->baseUrl;
 
     Http::fake([
-        $baseUrl . "34028316000103" => function () {
+        $baseUrl . '34028316000103' => function () {
             throw new ConnectionException();
         },
     ]);
@@ -55,10 +54,10 @@ test('Deve retorar dados da empresa caso CNPJ seja inválido', function () {
     $baseUrl = $service->baseUrl;
 
     Http::fake([
-        $baseUrl . "11111111111" => Http::response([
+        $baseUrl . '11111111111' => Http::response([
             'status' => 400,
-            'titulo' => "Requisição inválida",
-            'detalhes' => "CNPJ inválido",
+            'titulo' => 'Requisição inválida',
+            'detalhes' => 'CNPJ inválido',
         ], 400),
     ]);
 

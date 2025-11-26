@@ -11,29 +11,29 @@ final class Formatacao
         $CPF_LENGTH = 11;
         $cnpjCpf = preg_replace("/\D/", '', (string) $value);
 
-        if (mb_strlen($cnpjCpf) === $CPF_LENGTH) {
-            return preg_replace("/(\d{3})(\d{3})(\d{3})(\d{2})/", '$1.$2.$3-$4', $cnpjCpf);
+        if (mb_strlen((string) $cnpjCpf) === $CPF_LENGTH) {
+            return preg_replace("/(\d{3})(\d{3})(\d{3})(\d{2})/", '$1.$2.$3-$4', (string) $cnpjCpf);
         }
 
-        return preg_replace("/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/", '$1.$2.$3/$4-$5', $cnpjCpf);
+        return preg_replace("/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/", '$1.$2.$3/$4-$5', (string) $cnpjCpf);
     }
 
     public static function telefone($value): string
     {
         $telefone = preg_replace("/\D/", '', (string) $value);
 
-        if (mb_strlen($telefone) === 11) {
-            return '(' . mb_substr($telefone, 0, 2) . ') ' . mb_substr($telefone, 2, 5) . '-' . mb_substr($telefone, 7, 11);
+        if (mb_strlen((string) $telefone) === 11) {
+            return '(' . mb_substr((string) $telefone, 0, 2) . ') ' . mb_substr((string) $telefone, 2, 5) . '-' . mb_substr((string) $telefone, 7, 11);
         }
 
-        return '(' . mb_substr($telefone, 0, 2) . ') ' . mb_substr($telefone, 2, 4) . '-' . mb_substr($telefone, 6, 10);
+        return '(' . mb_substr((string) $telefone, 0, 2) . ') ' . mb_substr((string) $telefone, 2, 4) . '-' . mb_substr((string) $telefone, 6, 10);
     }
 
-    public static function retornarDigitos(array | string $value)
+    public static function retornarDigitos(array|string $value): array|string|null
     {
         if (is_array($value)) {
-            array_walk($value, function (&$item) {
-                $item = preg_replace('/\D/', '', $item);
+            array_walk($value, function (&$item): void {
+                $item = empty($item) ? $item : preg_replace('/\D/', '', $item);
             });
 
             return $value;
