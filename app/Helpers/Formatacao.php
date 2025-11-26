@@ -28,4 +28,15 @@ final class Formatacao
 
         return '(' . mb_substr($telefone, 0, 2) . ') ' . mb_substr($telefone, 2, 4) . '-' . mb_substr($telefone, 6, 10);
     }
+
+    public static function retornarDigitos(array | string $value)
+    {
+        if (is_array($value)) {
+            return array_walk($value, function (&$item) {
+                $item = preg_replace('/\D/', '', $item);
+            });
+        }
+
+        return preg_replace('/\D/', '', $value);
+    }
 }
