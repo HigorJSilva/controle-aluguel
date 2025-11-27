@@ -21,7 +21,7 @@ final class Inquilino extends Model
         'documento',
         'email',
         'telefone',
-        'observacoes',
+        'observacao',
     ];
 
     public function usuario(): BelongsTo

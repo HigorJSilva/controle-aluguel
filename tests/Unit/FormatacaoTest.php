@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use App\Helpers\Formatacao;
 
-test('Cidades devem retornar dado um id válido', function ($documento) {
+test('Formatacao::documento deve retornar valor de documento formatado para frontend', function ($documento) {
 
     $formatado = Formatacao::documento($documento);
 
@@ -22,7 +22,7 @@ test('Cidades devem retornar dado um id válido', function ($documento) {
     ]
 );
 
-test('Cidades devem retornar null dado um id inválido', function ($telefone) {
+test('Formatacao::telefone deve retornar valor de telefone formatado para frontend', function ($telefone) {
 
     $formatado = Formatacao::telefone($telefone);
 
@@ -35,7 +35,26 @@ test('Cidades devem retornar null dado um id inválido', function ($telefone) {
     expect($formatado)->toBe('(62) 9999-9999');
 })->with(
     [
-        'para cnpj' => ['telefone' => '62999999999'],
-        'para CPF' => ['telefone' => '6299999999'],
+        'para celular' => ['telefone' => '62999999999'],
+        'para telefoneFixo' => ['telefone' => '6299999999'],
+    ]
+);
+
+test('Formatacao::retornarDigitos deve retornar valores sem formatação', function ($value) {
+    $formatado = Formatacao::retornarDigitos($value);
+
+    if (is_array($formatado)) {
+        expect($formatado)->each->toBeDigits();
+
+        return;
+    }
+
+    expect($formatado)->toBeDigits();
+})->with(
+    [
+        'para CPF' => ['value' => '488.479.297-17'],
+        'para CNPJ' => ['value' => '12.346.238/2680-40'],
+        'para CEP' => ['value' => '71920-230'],
+        'para array' => ['value' => ['488.479.297-17', '12.346.238/2680-40', '71920-230']],
     ]
 );

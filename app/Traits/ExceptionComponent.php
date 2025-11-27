@@ -6,6 +6,7 @@ namespace App\Traits;
 
 use DomainException;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\ValidationException;
 
 use function Laravel\Prompts\error;
 
@@ -13,6 +14,10 @@ trait ExceptionComponent
 {
     public function exception($e, $stopPropagation): void
     {
+        if ($e instanceof ValidationException) {
+            return;
+        }
+
         if ($e instanceof DomainException) {
             $this->error($e->getMessage(), timeout: 5000);
             $stopPropagation();
