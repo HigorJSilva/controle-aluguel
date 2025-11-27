@@ -14,6 +14,7 @@ return RectorConfig::configure()
     ])
     ->withSkip([
         AddOverrideAttributeToOverriddenMethodsRector::class,
+        __DIR__ . 'app/Helpers/Cidades.php',
     ])
     ->withPreparedSets(
         deadCode: true,

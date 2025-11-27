@@ -3,6 +3,9 @@
     "notPath": [
         "tests/TestCase.php"
     ],
+    "exclude": [
+        "app/Helpers/Cidades.php"
+    ],
     "rules": {
         "concat_space": {
             "spacing": "one"
