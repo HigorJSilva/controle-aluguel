@@ -98,9 +98,17 @@ return [
     'input_property_description_label' => 'Descrição',
     'input_property_description_placeholder' => 'Descrição adicional do imóvel...',
 
+    'tenant_create_title' => 'Cadastrar Novo Inquilino',
     'input_tenant_name_label' => 'Nome Completo',
+    'input_tenant_name_placeholder' => 'João Castro e Neves',
+    'input_tenant_document_label' => 'CPF/CNPJ',
+    'input_tenant_document_placeholder' => '19.832.158/0001-13',
     'input_tenant_email_label' => 'Email',
+    'input_tenant_email_placeholder' => 'email@email.com',
     'input_tenant_fone_label' => 'Telefone',
+    'input_tenant_fone_placeholder' => '(99) 99999-9999',
+    'input_tenant_obs_label' => 'Observações',
+    'input_tenant_obs_placeholder' => 'Informações adicionais sobre o inquilino...',
     'new_tenant_button' => 'Adicionar Inquilino',
 
     'input_payment_start_label' => 'Início do Contrato',
