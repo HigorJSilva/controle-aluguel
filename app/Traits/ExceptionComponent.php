@@ -7,6 +7,7 @@ namespace App\Traits;
 use DomainException;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 use function Laravel\Prompts\error;
 
@@ -29,6 +30,9 @@ trait ExceptionComponent
         error('ERROR AT: ' . $this->__name . ' ' . $e->getMessage());
         Log::error('ERROR AT: ' . $this->__name . ' ', [$e->getFile() . $e->getLine(), $e->getMessage()]);
 
-        $stopPropagation();
+        if (! ($e instanceof NotFoundHttpException)) {
+            $stopPropagation();
+        }
+
     }
 }
