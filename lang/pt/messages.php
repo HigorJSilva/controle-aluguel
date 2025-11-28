@@ -99,6 +99,7 @@ return [
     'input_property_description_placeholder' => 'Descrição adicional do imóvel...',
 
     'tenant_create_title' => 'Cadastrar Novo Inquilino',
+    'tenant_edit_title' => 'Editar Inquilino',
     'input_tenant_name_label' => 'Nome Completo',
     'input_tenant_name_placeholder' => 'João Castro e Neves',
     'input_tenant_document_label' => 'CPF/CNPJ',
