@@ -99,6 +99,7 @@ return [
     'input_property_description_placeholder' => 'Additional property description...',
 
     'tenant_create_title' => 'Register New Tenant',
+    'tenant_edit_title' => 'Edit Tenant',
     'input_tenant_name_label' => 'Full Name',
     'input_tenant_name_placeholder' => 'John Doe',
     'input_tenant_document_label' => 'Document ID',
