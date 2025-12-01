@@ -24,7 +24,7 @@ final class EditImovel extends Controller
         try {
 
             if (Auth::user()->status !== UserStatus::ACTIVE) {
-                throw new DomainException('Usuário inativo. Consulte sua assinatura', 402);
+                throw new DomainException(__('messages.inactive_user'), 402);
             }
 
             $enderecoPayload = $imovelDto->toArray()['endereco'];

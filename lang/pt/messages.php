@@ -124,7 +124,7 @@ return [
     'input_payment_end_label' => 'Fim do Contrato',
     'input_payment_next_label' => 'Próximo Pagamento',
 
-    'user_inactive' => 'Usuário inativo. Consulte sua a validade de sua  assinatura',
+    'inactive_user' => 'Usuário inativo. Consulte sua a validade de sua assinatura',
 
     'tenant_index_title' => 'Inquilinos',
     'tenant_index_subtitle' => 'Gerencie os inquilinos cadastrados no sistema',
