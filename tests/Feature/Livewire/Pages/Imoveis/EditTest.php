@@ -6,6 +6,7 @@ use App\Actions\Imovel\EditImovel;
 use App\DTO\Imovel\EditImovelDTO;
 use App\Enums\StatusImoveis;
 use App\Enums\TiposImoveis;
+use App\Enums\UserStatus;
 use App\Models\Endereco;
 use App\Models\Imovel;
 use App\Models\User;
@@ -115,3 +116,28 @@ it('tela de editar imóvel não pode ser vista se imóvel pertercer a outro usu�
 
     $response->assertStatus(404);
 });
+
+it('retornar exibir erro ao receber DomainException', function () {
+    $this->user = User::factory()->create(['status' => UserStatus::INACTIVE->value]);
+    $this->actingAs($this->user);
+
+    $data = [
+        'titulo' => 'Novo apartamento',
+        'tipo' => '1',
+        'userId' => 1,
+        'valorAluguelSugerido' => '1000.00',
+        'quartos' => 2,
+        'banheiros' => 2,
+        'area' => '80',
+        'status' => '1',
+        'descricao' => '',
+        'cep' => '75020040',
+        'endereco' => 'Rua Desembargador Jaime',
+        'bairro' => 'Centro',
+        'cidade' => '5201108',
+        'estado' => 'GO',
+    ];
+    $dto = new EditImovelDTO(...$data);
+    EditImovel::run($dto, $this->imovel, null);
+
+})->throws(DomainException::class);

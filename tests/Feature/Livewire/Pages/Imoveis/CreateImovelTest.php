@@ -6,9 +6,11 @@ use App\Actions\Imovel\CreateImovel;
 use App\DTO\Imovel\CreateImovelDTO;
 use App\Enums\StatusImoveis;
 use App\Enums\TiposImoveis;
+use App\Enums\UserStatus;
 use App\Models\User;
 use App\Services\CEP\ViaCepStrategy;
 use Illuminate\Http\Client\ConnectionException;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 
 use function Pest\Livewire\livewire;
@@ -113,4 +115,46 @@ it('retornar null se a Action de criação de imovel falhar', function () {
     $imovel = CreateImovel::run($dto);
 
     expect($imovel)->toBeNull();
+});
+
+it('retornar exibir erro ao receber DomainException', function () {
+    $this->user = User::factory()->create(['status' => UserStatus::INACTIVE->value]);
+    $this->actingAs($this->user);
+
+    $data = [
+        'titulo' => 'Novo apartamento',
+        'tipo' => '1',
+        'userId' => Auth::user()->id,
+        'valorAluguelSugerido' => '1000.00',
+        'quartos' => 2,
+        'banheiros' => 2,
+        'area' => '80',
+        'status' => '1',
+        'descricao' => '',
+        'cep' => '75020040',
+        'endereco' => 'Rua Desembargador Jaime',
+        'bairro' => 'Centro',
+        'cidade' => '5201108',
+        'estado' => 'GO',
+    ];
+    $dto = new CreateImovelDTO(...$data);
+
+    CreateImovel::run($dto);
+})->throws(DomainException::class);
+
+test('imóvel não pode ser cadastrado por cliente inativo', function () {
+    $this->user = User::factory()->create(['status' => UserStatus::INACTIVE->value]);
+    $this->actingAs($this->user);
+
+    livewire('pages.imoveis.create')
+        ->set('titulo', 'Novo apartamento')
+        ->set('tipo', TiposImoveis::APARTAMENTO->value)
+        ->set('endereco', 'Rua Desembargador Jaime')
+        ->set('bairro', 'Centro')
+        ->set('cidade', '5201108')
+        ->set('cep', '75020-040')
+        ->set('valorAluguelSugerido', '1000.00')
+        ->set('status', StatusImoveis::DISPONIVEL->value)
+        ->call('save')
+        ->assertStatus(200);
 });
