@@ -29,6 +29,11 @@ final class Formatacao
         return '(' . mb_substr((string) $telefone, 0, 2) . ') ' . mb_substr((string) $telefone, 2, 4) . '-' . mb_substr((string) $telefone, 6, 10);
     }
 
+    public static function dinheiro($value): string
+    {
+        return number_format((float) $value, 2, ',', '.');
+    }
+
     public static function retornarDigitos(array|string $value): array|string|null
     {
         if (is_array($value)) {

@@ -58,3 +58,17 @@ test('Formatacao::retornarDigitos deve retornar valores sem formatação', funct
         'para array' => ['value' => ['488.479.297-17', '12.346.238/2680-40', '71920-230']],
     ]
 );
+
+test('Formatacao::dinheiro deve retornar valor de dinheiro formatado para frontend', function ($dinheiro) {
+    $dinheiro = (float) $dinheiro;
+
+    $formatado = Formatacao::dinheiro($dinheiro);
+
+    expect($formatado)->toBe(number_format($dinheiro, 2, ',', '.'));
+})->with(
+    [
+        'para valor baixo' => ['dinheiro' => '12'],
+        'para valor alto' => ['dinheiro' => '123.34'],
+        'para valor muito alto' => ['dinheiro' => '12312321312243.43'],
+    ]
+);
