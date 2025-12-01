@@ -47,6 +47,19 @@ new class extends Component {
     {
         unset($this->inquilinos);
     }
+
+    public function delete(int $id): void
+    {
+        try {
+            Inquilino::where(['id' => $id, 'user_id' => Auth::user()->id])->first()->delete();
+            $this->success(__('messages.deleted'));
+
+            unset($this->inquilinos);
+        } catch (\Exception $e) {
+            $this->error(__('messages.error_on_delete'));
+        }
+        $this->modal = false;
+    }
 }; ?>
 
 <x-pages.layout :page-title="__('messages.tenant_index_title')" :subtitle="__('messages.tenant_index_subtitle')">
@@ -107,7 +120,7 @@ new class extends Component {
 <script>
     $wire.on('target-delete', (event) => {
         $wire.modal = true;
-        $wire.targetDelete = event.imoveis;
+        $wire.targetDelete = event.inquilinos;
     });
 </script>
 @endscript
