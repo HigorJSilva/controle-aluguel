@@ -98,6 +98,14 @@ return [
     'input_property_description_label' => 'Descrição',
     'input_property_description_placeholder' => 'Descrição adicional do imóvel...',
 
+    'property_show_current_property_label' => 'Aluguel Atual',
+    'property_show_rent_label' => 'Aluguel',
+    'tenant_show_available_tenant_title' => 'Inquilino disponível para locação',
+    'tenant_show_available_tenant_subtitle' => 'Vincule-o a uma propriedade',
+    'show_start_label' => 'Início',
+    'show_end_label' => 'Términio',
+    'new_rent_button' => 'Nova locação',
+
     'tenant_create_title' => 'Cadastrar Novo Inquilino',
     'tenant_edit_title' => 'Editar Inquilino',
     'input_tenant_name_label' => 'Nome Completo',
