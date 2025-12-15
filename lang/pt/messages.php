@@ -134,4 +134,14 @@ return [
     'no_tenant_found_subtitle' => 'Tente ajustar os filtros ou adicione uma novo inquilino',
     'delete_tenant_modal_title' => 'Excluir Inquilino',
     'delete_tenant_modal_subtitle' => 'Tem certeza? Esta ação não poderá ser desfeita.',
+
+    'rent_index_title' => 'Locações',
+    'input_rent_search' => 'Procure por propriedade ou inquilino',
+    'rent_index_subtitle' => 'Gerencie os contratos de locação cadastrados no sistema',
+    'rent_index_tenant_label' => 'Inquilino',
+    'rent_index_rent_label' => 'Aluguel',
+    'rent_index_span_label' => 'Período',
+    'rent_index_indefinite_span_label' => 'indefinido',
+    'rent_index_active_label' => 'Ativa',
+    'rent_index_inactive_label' => 'Invativa',
 ];
