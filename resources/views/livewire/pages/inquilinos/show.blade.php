@@ -4,6 +4,8 @@ use App\Enums\TiposImoveis;
 use App\Helpers\Formatacao;
 use App\Models\Imovel;
 use App\Models\Inquilino;
+use App\Models\Locacao;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Volt\Component;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -11,8 +13,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 new class extends Component {
 
     public Inquilino $inquilino;
-    //TODO: implementar vínculo com aluguel
-    public Imovel $imovel;
+    public ?Locacao $locacao;
 
     public array $paymentHistory = [];
 
@@ -23,6 +24,13 @@ new class extends Component {
             throw new NotFoundHttpException();
         }
 
+        $this->locacao = $this->inquilino->locacaoAtiva;
+
+        if (!empty($this->locacao)) {
+            $this->locacao->load(['imovel' => function ($query) {
+                $query->select(['id', 'titulo', 'tipo']);
+            }]);
+        }
 
         //TODO: substiuir ao implementar pagamentos
         $this->paymentHistory = [
@@ -102,7 +110,7 @@ new class extends Component {
 
             <div class="space-y-6">
 
-                @if (!empty($this->aluguel))
+                @if (!empty($this->locacao))
                 <x-mary-card class="shadow border border-base-300 relative">
                     <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
                         <x-mary-icon name="lucide.house" class="h-5 w-5" />
@@ -110,8 +118,8 @@ new class extends Component {
                     </h2>
                     <div class="space-y-4">
                         <div>
-                            <p class="text-base-content font-medium mt-1">{{ $aluguel->imovel->titulo ?? 'N/A' }}</p>
-                            <p class="text-sm text-base-content/70 mt-1">{{ (TiposImoveis::tryfrom($aluguel->imovel->tipo))->label() ?? 'N/A' }}</p>
+                            <p class="text-base-content font-medium mt-1">{{ $locacao->imovel->titulo ?? 'N/A' }}</p>
+                            <p class="text-sm text-base-content/70 mt-1">{{ (TiposImoveis::tryfrom($locacao->imovel->tipo))->label() ?? 'N/A' }}</p>
                         </div>
                         <x-mary-hr />
 
@@ -119,7 +127,7 @@ new class extends Component {
                             <label class="text-sm text-base-content/70 flex items-center gap-1">
                                 {{__('messages.property_show_rent_label')}}
                             </label>
-                            <p class="text-base-content font-medium mt-1">{{ Formatacao::dinheiro($aluguel->valor) ?? 'N/A' }}</p>
+                            <p class="text-base-content font-medium mt-1">{{ Formatacao::dinheiro($locacao->valor) ?? 'N/A' }}</p>
                         </div>
 
                         <div class="flex flex-1 text-sm">
@@ -127,9 +135,9 @@ new class extends Component {
                                 <x-mary-icon name="o-calendar-days" class="h-3.5 w-3.5" />
                                 {{__('messages.show_start_label') . ": "}}
                             </label>
-                            <p class="text-base-content">{{ empty($aluguel->inquilino->data_inicio_contrato) 
+                            <p class="text-base-content">{{ empty($locacao->data_inicio) 
                                 ? __('messages.not_specified') 
-                                : (Carbon\Carbon::parse($aluguel->inquilino->data_inicio_contrato))->format('d/m/Y') }}</p>
+                                : (Carbon\Carbon::parse($locacao->data_inicio))->format('d/m/Y') }}</p>
                         </div>
 
                         <div class="flex flex-1 text-sm">
@@ -137,15 +145,15 @@ new class extends Component {
                                 <x-mary-icon name="o-calendar-days" class="h-3.5 w-3.5" />
                                 {{__('messages.show_end_label') . ": "}}
                             </label>
-                            <p class="text-base-content">{{ empty($imovel->inquilino->data_fim_contrato) 
+                            <p class="text-base-content">{{ empty($locacao->data_fim) 
                                 ? __('messages.not_specified') 
-                                : (Carbon\Carbon::parse($imovel->inquilino->data_fim_contrato))->format('d/m/Y') }}</p>
+                                : (Carbon\Carbon::parse($locacao->data_fim))->format('d/m/Y') }}</p>
                         </div>
 
                         <x-mary-hr />
 
                         <div class="flex flex-1 justify-center bg-primary/5 border border-primary/20 rounded-lg p-4 hover:bg-primary/70 hover:text-white">
-                            <a href="{{route('imoveis.show', $imovel->id)}}"> Ver detalhes do aluguel</a>
+                            <a href="{{route('locacoes.show', $locacao->id)}}"> Ver detalhes do aluguel</a>
                         </div>
                     </div>
                 </x-mary-card>
@@ -157,7 +165,7 @@ new class extends Component {
                         {{__('messages.tenant_show_available_tenant_subtitle')}}.
                     </p>
 
-                    <x-mary-button label="{{__('messages.new_rent_button')}}" class="btn-primary w-full" />
+                    <x-mary-button label="{{__('messages.new_rent_button')}}" class="btn-primary w-full" :link="route('locacoes.create')" />
                 </x-mary-card>
                 @endif
 
