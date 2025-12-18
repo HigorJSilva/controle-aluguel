@@ -48,4 +48,12 @@ class Locacao extends Model
             $q->where('user_id', $userId);
         });
     }
+
+    public function pertenceUsuario(): bool
+    {
+        $userId = Auth::user()->id;
+
+        return $this->imovel->user_id === $userId && $this->inquilino->user_id === $userId;
+
+    }
 }

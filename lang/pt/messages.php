@@ -56,7 +56,7 @@ return [
 
     'property_show_title' => 'Informações da Propriedade',
     'property_show_payment_history_title' => 'Histórico de Pagamentos',
-    'property_show_empty_payment_history_title' => 'Ainda não existem pagamento',
+    'property_show_empty_payment_history_title' => 'Ainda não existem pagamentos',
     'property_show_paid_in_label' => 'Pago em',
     'property_show_current_tenant_label' => 'Inquilino Atual',
     'property_show_available_property_title' => 'Propriedade Disponível',
@@ -144,4 +144,14 @@ return [
     'rent_index_indefinite_span_label' => 'indefinido',
     'rent_index_active_label' => 'Ativa',
     'rent_index_inactive_label' => 'Invativa',
+
+    'input_rent_due_day' => 'Dia de vencimento',
+
+    'rent_show_title' => 'Termos do Aluguel',
+    'rent_show_title' => 'Termos do Aluguel',
+
+    'rent_show_tenant_details' => 'Ver Detalhes do Inquilino',
+    
+    'rent_show_property_title' => 'Propriedade',
+    'rent_show_property_details' => 'Ver Detalhes do Imóvel',
 ];
