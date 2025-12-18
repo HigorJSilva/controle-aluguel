@@ -87,6 +87,7 @@ new class extends Component {
                     </div>
                 </x-mary-card>
 
+                 {{--//TODO: implementar componente reaproveitavel de historico de pagamentos --}}
                 <x-mary-card class="shadow border border-base-300 mt-6">
                     <h2 class="text-xl font-bold mb-4">{{__('messages.property_show_payment_history_title')}}</h2>
                     <div class="space-y-3">
