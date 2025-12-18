@@ -43,8 +43,8 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('locacoes')->name('locacoes.')->group(function () {
         Volt::route('/', 'pages.locacoes.index')->name('index');
         Volt::route('/create', 'pages.locacoes.create')->name('create');
-        Volt::route('/{inquilino}/edit', 'pages.locacoes.edit')->name('edit');
-        Volt::route('/{inquilino}', 'pages.locacoes.show')->name('show');
+        Volt::route('/{locacao}/edit', 'pages.locacoes.edit')->name('edit');
+        Volt::route('/{locacao}', 'pages.locacoes.show')->name('show');
     });
 });
 
