@@ -167,7 +167,7 @@ return [
     'rent_show_title' => 'Termos do Aluguel',
 
     'rent_show_tenant_details' => 'Ver Detalhes do Inquilino',
-    
+
     'rent_show_property_title' => 'Propriedade',
     'rent_show_property_details' => 'Ver Detalhes do Imóvel',
 ];

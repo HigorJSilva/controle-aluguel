@@ -39,7 +39,7 @@ final class CreateLocacao
             $locacao->save();
             $imovel->save();
 
-            //TODO: criar proximo pagamento
+            // TODO: criar proximo pagamento
 
             DB::commit();
 

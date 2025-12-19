@@ -39,7 +39,7 @@ final class Inquilino extends Model
     public function locacaoAtiva(): HasOne
     {
         return $this->hasOne(Locacao::class)
-            ->where('status', true) 
+            ->where('status', true)
             ->latest();
     }
 }

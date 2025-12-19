@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -9,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 
-class Locacao extends Model
+final class Locacao extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -42,9 +44,9 @@ class Locacao extends Model
     {
         $userId = Auth::user()->id;
 
-        return $query->whereHas('imovel', function ($q) use ($userId) {
+        return $query->whereHas('imovel', function ($q) use ($userId): void {
             $q->where('user_id', $userId);
-        })->whereHas('inquilino', function ($q)  use ($userId) {
+        })->whereHas('inquilino', function ($q) use ($userId): void {
             $q->where('user_id', $userId);
         });
     }

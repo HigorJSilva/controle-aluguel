@@ -6,15 +6,14 @@ namespace App\DTO\Locacao;
 
 final readonly class CreateLocacaoDTO
 {
-
     public function __construct(
         public int $imovelId,
         public int $inquilinoId,
         public string $valor,
         public string $diaVencimento,
         public string $dataInicio,
-        public ?string $dataFim = null,
-        public bool $status = true,
+        public ?string $dataFim,
+        public bool $status,
         public string $diasAntecedenciaGeracao,
         public ?string $proximaGeracaoFatura = null,
         public ?string $proximaFatura = null,

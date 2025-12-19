@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('locacoes', function (Blueprint $table) {
+        Schema::create('locacoes', function (Blueprint $table): void {
             $table->id();
             $table->foreignId('imovel_id')->references('id')->on('imoveis')->index('locacoes_imovel_id_index');
             $table->foreignId('inquilino_id')->references('id')->on('inquilinos')->index('locacoes_inquilino_id_index');
