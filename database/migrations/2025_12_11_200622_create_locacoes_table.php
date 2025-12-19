@@ -21,8 +21,8 @@ return new class extends Migration
             $table->date('data_fim')->nullable();
             $table->boolean('status')->default(true);
             $table->string('dias_antecedencia_geracao', 2);
-            $table->date('proxima_geracao_fatura');
-            $table->date('proxima_fatura');
+            $table->date('proxima_geracao_fatura')->nullable();
+            $table->date('proxima_fatura')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
