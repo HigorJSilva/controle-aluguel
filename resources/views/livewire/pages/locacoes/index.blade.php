@@ -107,12 +107,12 @@ new class extends Component {
     <div class="text-center py-16">
         <x-mary-icon name="o-building-office" class="w-16 h-16 text-gray-300 mx-auto mb-4" />
         <h3 class="text-lg font-semibold text-gray-700 mb-2">
-            {{ __('messages.no_tenant_found_title') }}
+            {{ __('messages.no_rent_found_title') }}
         </h3>
         <p class="text-gray-500 mb-6">
-            {{ __('messages.no_tenant_found_subtitle') }}
+            {{ __('messages.no_rent_found_subtitle') }}
         </p>
-        <x-mary-button :label="__('messages.new_tenant_button')" icon="o-plus" :link="route('inquilinos.create')" class="btn-primary" />
+        <x-mary-button :label="__('messages.new_rent_button')" icon="o-plus" :link="route('locacoes.create')" class="btn-primary" />
     </div>
     @endif
 

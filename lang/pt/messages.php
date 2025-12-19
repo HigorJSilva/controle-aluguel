@@ -132,7 +132,7 @@ return [
     'new_tenant_button' => 'Novo inquilino',
     'input_tenant_search' => 'Buscar por nome ou documento',
     'no_tenant_found_title' => 'Nenhum inquilino encontrado',
-    'no_tenant_found_subtitle' => 'Tente ajustar os filtros ou adicione uma novo inquilino',
+    'no_tenant_found_subtitle' => 'Tente ajustar os filtros ou adicione um novo inquilino',
     'delete_tenant_modal_title' => 'Excluir Inquilino',
     'delete_tenant_modal_subtitle' => 'Tem certeza? Esta ação não poderá ser desfeita.',
 
@@ -145,6 +145,8 @@ return [
     'rent_index_indefinite_span_label' => 'indefinido',
     'rent_index_active_label' => 'Ativa',
     'rent_index_inactive_label' => 'Invativa',
+    'no_rent_found_title' => 'Nenhum aluguel encontrado',
+    'no_rent_found_subtitle' => 'Tente ajustar os filtros ou crie uma nova locação',
 
     'input_rent_due_day' => 'Dia de vencimento',
     'rent_create_rent_title' => 'Vínculo',
