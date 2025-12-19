@@ -125,6 +125,7 @@ return [
     'input_payment_next_label' => 'Próximo Pagamento',
 
     'inactive_user' => 'Usuário inativo. Consulte sua a validade de sua assinatura',
+    'unauthorized_user' => 'Registros não encontrados',
 
     'tenant_index_title' => 'Inquilinos',
     'tenant_index_subtitle' => 'Gerencie os inquilinos cadastrados no sistema',
@@ -146,6 +147,19 @@ return [
     'rent_index_inactive_label' => 'Invativa',
 
     'input_rent_due_day' => 'Dia de vencimento',
+    'rent_create_rent_title' => 'Vínculo',
+    'input_rent_property_label' => 'Imóvel',
+    'input_rent_tenant_label' => 'Inquilino',
+    'rent_create_contract_title' => 'Contrato',
+    'input_rent_amount_label' => 'Valor do aluguel (R$)',
+    'input_rent_amount_placeholder' => '1.500,00',
+    'input_tenant_due_day_placeholder' => 'Selecione o dia',
+    'input_rent_start_date_label' => 'Data de início',
+    'input_rent_start_date_placeholder' => 'Selecione a data de início',
+    'input_rent_end_date_label' => 'Data de Términio',
+    'input_tenant_end_date_placeholder' => 'Selecione a data de términio',
+    'input_rent_property_placeholder' => 'Selecione uma propriedade...',
+    'input_rent_tenant_placeholder' => 'Selecione um inquilino...',
 
     'rent_show_title' => 'Termos do Aluguel',
     'rent_show_title' => 'Termos do Aluguel',
