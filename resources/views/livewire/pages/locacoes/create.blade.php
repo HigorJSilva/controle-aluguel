@@ -112,7 +112,11 @@ new class extends Component {
                         :options="$this->imoveis"
                         option-value="id"
                         option-label="titulo"
-                        :placeholder="__('messages.input_rent_property_placeholder')" />
+                        :placeholder="__('messages.input_rent_property_placeholder')">
+                        <x-slot:append>
+                            <x-mary-button :label="__('messages.new_property_button')" :link="route('imoveis.create')" icon="o-plus" class="join-item btn-primary" />
+                        </x-slot:append>
+                    </x-mary-select>
 
                     <x-mary-select
                         :label="__('messages.input_rent_tenant_label')"
@@ -120,7 +124,11 @@ new class extends Component {
                         :options="$this->inquilinos"
                         option-value="id"
                         option-label="nome"
-                        :placeholder="__('messages.input_rent_tenant_placeholder')" />
+                        :placeholder="__('messages.input_rent_tenant_placeholder')">
+                        <x-slot:append>
+                            <x-mary-button :label="__('messages.new_tenant_button')" :link="route('inquilinos.create')" icon="o-plus" class="join-item btn-primary" />
+                        </x-slot:append>
+                    </x-mary-select>
                 </div>
 
             </x-mary-card>
