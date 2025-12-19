@@ -31,4 +31,11 @@ final class Imovel extends Model
     {
         return $this->hasOne(Endereco::class, 'imovel_id');
     }
+
+    public function locacaoAtiva(): HasOne
+    {
+        return $this->hasOne(Locacao::class)
+            ->where('status', true)
+            ->latest();
+    }
 }

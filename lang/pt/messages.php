@@ -56,7 +56,7 @@ return [
 
     'property_show_title' => 'Informações da Propriedade',
     'property_show_payment_history_title' => 'Histórico de Pagamentos',
-    'property_show_empty_payment_history_title' => 'Ainda não existem pagamento',
+    'property_show_empty_payment_history_title' => 'Ainda não existem pagamentos',
     'property_show_paid_in_label' => 'Pago em',
     'property_show_current_tenant_label' => 'Inquilino Atual',
     'property_show_available_property_title' => 'Propriedade Disponível',
@@ -104,7 +104,7 @@ return [
     'tenant_show_available_tenant_subtitle' => 'Vincule-o a uma propriedade',
     'show_start_label' => 'Início',
     'show_end_label' => 'Términio',
-    'new_rent_button' => 'Nova locação',
+    'new_rent_button' => 'Nova Locação',
 
     'tenant_create_title' => 'Cadastrar Novo Inquilino',
     'tenant_edit_title' => 'Editar Inquilino',
@@ -125,13 +125,49 @@ return [
     'input_payment_next_label' => 'Próximo Pagamento',
 
     'inactive_user' => 'Usuário inativo. Consulte sua a validade de sua assinatura',
+    'unauthorized_user' => 'Registros não encontrados',
 
     'tenant_index_title' => 'Inquilinos',
     'tenant_index_subtitle' => 'Gerencie os inquilinos cadastrados no sistema',
     'new_tenant_button' => 'Novo inquilino',
     'input_tenant_search' => 'Buscar por nome ou documento',
     'no_tenant_found_title' => 'Nenhum inquilino encontrado',
-    'no_tenant_found_subtitle' => 'Tente ajustar os filtros ou adicione uma novo inquilino',
+    'no_tenant_found_subtitle' => 'Tente ajustar os filtros ou adicione um novo inquilino',
     'delete_tenant_modal_title' => 'Excluir Inquilino',
     'delete_tenant_modal_subtitle' => 'Tem certeza? Esta ação não poderá ser desfeita.',
+
+    'rent_index_title' => 'Locações',
+    'input_rent_search' => 'Procure por propriedade ou inquilino',
+    'rent_index_subtitle' => 'Gerencie os contratos de locação cadastrados no sistema',
+    'rent_index_tenant_label' => 'Inquilino',
+    'rent_index_rent_label' => 'Aluguel',
+    'rent_index_span_label' => 'Período',
+    'rent_index_indefinite_span_label' => 'indefinido',
+    'rent_index_active_label' => 'Ativa',
+    'rent_index_inactive_label' => 'Invativa',
+    'no_rent_found_title' => 'Nenhum aluguel encontrado',
+    'no_rent_found_subtitle' => 'Tente ajustar os filtros ou crie uma nova locação',
+
+    'input_rent_due_day' => 'Dia de vencimento',
+    'rent_create_rent_title' => 'Vínculo',
+    'input_rent_property_label' => 'Imóvel',
+    'input_rent_tenant_label' => 'Inquilino',
+    'rent_create_contract_title' => 'Contrato',
+    'input_rent_amount_label' => 'Valor do aluguel (R$)',
+    'input_rent_amount_placeholder' => '1.500,00',
+    'input_tenant_due_day_placeholder' => 'Selecione o dia',
+    'input_rent_start_date_label' => 'Data de início',
+    'input_rent_start_date_placeholder' => 'Selecione a data de início',
+    'input_rent_end_date_label' => 'Data de Términio',
+    'input_tenant_end_date_placeholder' => 'Selecione a data de términio',
+    'input_rent_property_placeholder' => 'Selecione uma propriedade...',
+    'input_rent_tenant_placeholder' => 'Selecione um inquilino...',
+
+    'rent_show_title' => 'Termos do Aluguel',
+    'rent_show_title' => 'Termos do Aluguel',
+
+    'rent_show_tenant_details' => 'Ver Detalhes do Inquilino',
+
+    'rent_show_property_title' => 'Propriedade',
+    'rent_show_property_details' => 'Ver Detalhes do Imóvel',
 ];

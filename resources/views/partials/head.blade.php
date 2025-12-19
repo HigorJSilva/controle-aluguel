@@ -9,6 +9,9 @@
 </title>
 <meta name="description" content="{{ $metaDescription ?? config('app.description', 'Default description') }}">
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/robsontenorio/mary@0.44.2/libs/currency/currency.js"></script>
 @stack('scripts')

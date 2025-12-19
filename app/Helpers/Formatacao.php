@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Helpers;
 
+use Carbon\Carbon;
+
 final class Formatacao
 {
     public static function documento($value): string
@@ -45,5 +47,10 @@ final class Formatacao
         }
 
         return preg_replace('/\D/', '', $value);
+    }
+
+    public static function data(string $value): string
+    {
+        return Carbon::createFromFormat('Y-m-d', $value)->format('d/m/Y');
     }
 }

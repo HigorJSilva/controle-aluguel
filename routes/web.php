@@ -39,6 +39,13 @@ Route::middleware(['auth'])->group(function () {
         Volt::route('/{inquilino}/edit', 'pages.inquilinos.edit')->name('edit');
         Volt::route('/{inquilino}', 'pages.inquilinos.show')->name('show');
     });
+
+    Route::prefix('locacoes')->name('locacoes.')->group(function () {
+        Volt::route('/', 'pages.locacoes.index')->name('index');
+        Volt::route('/create', 'pages.locacoes.create')->name('create');
+        Volt::route('/{locacao}/edit', 'pages.locacoes.edit')->name('edit');
+        Volt::route('/{locacao}', 'pages.locacoes.show')->name('show');
+    });
 });
 
 require __DIR__ . '/auth.php';

@@ -58,7 +58,7 @@ it('componente de inquilino vazio pode ser vista', function () {
 
     $response->assertSee(__('messages.property_show_available_property_title'));
     $response->assertSee(__('messages.property_show_available_property_subtitle'));
-    $response->assertSee(__('messages.new_tenant_button'));
+    $response->assertSee(__('messages.new_rent_button'));
 });
 
 it('tela de detalhes de imóvel não pode ser vista por outro usuario', function () {

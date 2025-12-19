@@ -4,6 +4,7 @@ use App\Models\Imovel;
 use App\Helpers\Cidades;
 use App\Enums\TiposImoveis;
 use App\Enums\StatusImoveis;
+use App\Models\Locacao;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Volt\Component;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -12,12 +13,23 @@ new class extends Component {
 
     public Imovel $imovel;
 
+    public ?Locacao $locacao;
+
+
     public array $paymentHistory = [];
 
     public function mount(Imovel $imovel): void
     {
         if ($this->imovel->user_id != Auth::user()->id) {
             throw new NotFoundHttpException();
+        }
+
+        $this->locacao = $this->imovel->locacaoAtiva;
+
+        if (!empty($this->locacao)) {
+            $this->locacao->load(['inquilino' => function ($query) {
+                $query->select(['id', 'nome', 'documento', 'email', 'telefone']);
+            }]);
         }
 
         $this->imovel = $imovel->loadMissing(['endereco']);
@@ -125,6 +137,7 @@ new class extends Component {
                 </x-mary-card>
 
                 {{-- 2. Card de Histórico de Pagamentos --}}
+                {{--//TODO: implementar componente reaproveitavel de historico de pagamentos --}}
                 <x-mary-card class="shadow border border-base-300">
                     <h2 class="text-xl font-bold mb-4">{{__('messages.property_show_payment_history_title')}}</h2>
                     <div class="space-y-3">
@@ -151,7 +164,7 @@ new class extends Component {
             <div class="space-y-6">
 
                 {{-- 3. Card do Inquilino (se estiver ocupado) --}}
-                @if ($imovel->status == StatusImoveis::ALUGADO->value && !empty($imovel->inquilino))
+                @if ($imovel->status == StatusImoveis::ALUGADO->value && !empty($this->locacao->inquilino))
                 <x-mary-card class="shadow border border-base-300 relative">
                     <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
                         <x-mary-icon name="o-user" class="h-5 w-5" />
@@ -160,15 +173,21 @@ new class extends Component {
                     <div class="space-y-4">
                         <div>
                             <label class="text-sm text-base-content/70">{{__('messages.input_tenant_name_label')}}</label>
-                            <p class="text-base-content font-medium mt-1">{{ $imovel->inquilino->nome ?? 'N/A' }}</p>
+                            <p class="text-base-content font-medium mt-1">{{ $this->locacao->inquilino->nome ?? __('messages.not_specified') }}</p>
                         </div>
+
+                        <div>
+                            <label class="text-sm text-base-content/70">{{__('messages.input_tenant_document_label')}}</label>
+                            <p class="text-base-content font-medium mt-1">{{ App\Helpers\Formatacao::documento($this->locacao->inquilino->documento) }}</p>
+                        </div>
+
                         <div>
                             <label class="text-sm text-base-content/70">{{__('messages.input_tenant_email_label')}}</label>
-                            <p class="text-base-content mt-1">{{ $imovel->inquilino->email ?? 'N/A' }}</p>
+                            <p class="text-base-content mt-1">{{ empty($this->locacao->inquilino->email)  ? __('messages.not_specified') : $this->locacao->inquilino->email}}</p>
                         </div>
                         <div>
                             <label class="text-sm text-base-content/70">{{__('messages.input_tenant_fone_label')}}</label>
-                            <p class="text-base-content mt-1">{{ $imovel->inquilino->telefone ?? 'N/A' }}</p>
+                            <p class="text-base-content mt-1">{{ empty($this->locacao->inquilino->telefone) ? __('messages.not_specified') : App\Helpers\Formatacao::telefone($this->locacao->inquilino->telefone)}}</p>
                         </div>
 
                         <x-mary-hr />
@@ -178,21 +197,22 @@ new class extends Component {
                                 <x-mary-icon name="o-calendar-days" class="h-3.5 w-3.5" />
                                 {{__('messages.input_payment_start_label')}}
                             </label>
-                            <p class="text-base-content font-medium mt-1">{{ $imovel->inquilino->data_inicio_contrato ?? 'N/A' }}</p>
+                            <p class="text-base-content font-medium mt-1">{{ App\Helpers\Formatacao::data($this->locacao->data_inicio)}}</p>
                         </div>
+
                         <div>
                             <label class="text-sm text-base-content/70 flex items-center gap-1">
                                 <x-mary-icon name="o-calendar-days" class="h-3.5 w-3.5" />
                                 {{__('messages.input_payment_end_label')}}
                             </label>
-                            <p class="text-base-content font-medium mt-1">{{ $imovel->inquilino->data_fim_contrato ?? 'N/A' }}</p>
+                            <p class="text-base-content font-medium mt-1">{{ empty($this->locacao->data_fim) ? __('messages.rent_index_indefinite_span_label') : App\Helpers\Formatacao::data( $this->locacao->data_fim) }}</p>
                         </div>
 
                         <x-mary-hr />
 
                         <div class="bg-primary/5 border border-primary/20 rounded-lg p-4">
                             <label class="text-sm text-base-content/70"> {{__('messages.input_payment_next_label')}}</label>
-                            <p class="text-lg font-bold text-primary mt-1">{{ $imovel->proximo_pagamento ?? 'N/A' }}</p>
+                            <p class="text-lg font-bold text-primary mt-1">{{ empty($this->locacao->proxima_fatura) ? __('messages.not_specified') : App\Helpers\Formatacao::data($this->locacao->proxima_fatura)}}</p>
                         </div>
                     </div>
                 </x-mary-card>
@@ -205,7 +225,8 @@ new class extends Component {
                         {{__('messages.property_show_available_property_subtitle')}}.
                     </p>
                     {{-- Este link/botão vai levar para uma página de "novo contrato" --}}
-                    <x-mary-button label="{{__('messages.new_tenant_button')}}" class="btn-primary w-full" />
+
+                    <x-mary-button label="{{__('messages.new_rent_button')}}" class="btn-primary w-full" :link="route('locacoes.create')" />
                 </x-mary-card>
                 @endif
             </div>
