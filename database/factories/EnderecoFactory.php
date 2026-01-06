@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -19,8 +20,10 @@ final class EnderecoFactory extends Factory
     public function definition(): array
     {
         $adress = fake()->address();
+        $imoveisIds = DB::table('imoveis')->pluck('id');
 
         return [
+            'imovel_id' => fake()->randomElement($imoveisIds),
             'cep' => preg_replace('/\D/', '', explode(',', $adress)[0]),
             'endereco' => explode(',', $adress)[1],
             'bairro' => fake()->city(),

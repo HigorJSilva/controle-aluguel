@@ -83,7 +83,7 @@ new class extends Component {
         </div>
 
         @if($this->inquilinos->count() > 0)
-        <div>
+        <div class="m-2">
             {{$this->inquilinos->links()}}
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

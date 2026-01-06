@@ -144,7 +144,7 @@ return [
     'rent_index_span_label' => 'Período',
     'rent_index_indefinite_span_label' => 'indefinido',
     'rent_index_active_label' => 'Ativa',
-    'rent_index_inactive_label' => 'Invativa',
+    'rent_index_inactive_label' => 'Inativa',
     'no_rent_found_title' => 'Nenhum aluguel encontrado',
     'no_rent_found_subtitle' => 'Tente ajustar os filtros ou crie uma nova locação',
 

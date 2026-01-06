@@ -57,6 +57,11 @@ new class extends Component {
         $this->success(__('messages.cleared_filters'));
     }
 
+    public function updatedStatus()
+    {
+        unset($this->locacoes);
+    }
+
     public function updatedPaginators()
     {
         unset($this->locacoes);

@@ -168,7 +168,7 @@ new class extends Component {
 
         <!-- Grid de Propriedades-->
         @if ($this->imoveis->count() > 0)
-        <div class="mb-8">
+        <div  class="m-2">
             {{ $this->imoveis->links() }}
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Inquilino>
@@ -20,8 +19,10 @@ final class InquilinoFactory extends Factory
      */
     public function definition(): array
     {
+        $usersIds = DB::table('users')->pluck('id');
+
         return [
-            'user_id' => Auth::user()?->id ?? User::first()->id,
+            'user_id' => fake()->randomElement($usersIds),
             'nome' => fake()->name(),
             'documento' => random_bytes(1) !== '' && random_bytes(1) !== '0' ? fake()->numerify('##############') : fake()->numerify('###########'),
             'email' => fake()->email(),
