@@ -20,7 +20,7 @@ final class ImovelFactory extends Factory
     public function definition(): array
     {
         $usersIds = DB::table('users')->pluck('id');
-        
+
         return [
             'titulo' => fake()->words(3, true),
             'tipo' => fake()->numberBetween(1, 5),

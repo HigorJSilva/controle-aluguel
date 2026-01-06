@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -22,7 +20,7 @@ final class InquilinoFactory extends Factory
     public function definition(): array
     {
         $usersIds = DB::table('users')->pluck('id');
-        
+
         return [
             'user_id' => fake()->randomElement($usersIds),
             'nome' => fake()->name(),

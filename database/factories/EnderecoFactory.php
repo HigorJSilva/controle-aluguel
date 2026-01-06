@@ -23,7 +23,7 @@ final class EnderecoFactory extends Factory
         $imoveisIds = DB::table('imoveis')->pluck('id');
 
         return [
-            'imovel_id' =>  fake()->randomElement($imoveisIds), 
+            'imovel_id' => fake()->randomElement($imoveisIds),
             'cep' => preg_replace('/\D/', '', explode(',', $adress)[0]),
             'endereco' => explode(',', $adress)[1],
             'bairro' => fake()->city(),
