@@ -72,7 +72,7 @@ new class extends Component {
                             <div>
                                 <x-mary-icon name="lucide.phone" class="w-4 h-4 text-base-content/70" />
                                 <label class="text-sm text-base-content/70">{{__('messages.input_tenant_fone_label')}}</label>
-                                <p class="text-base-content">{{Formatacao::telefone($inquilino->telefone)}}</p>
+                                <p class="text-base-content">{{empty($inquilino->telefone) ? __('messages.not_specified') : Formatacao::telefone($inquilino->telefone)}}</p>
                             </div>
                         </div>
 
