@@ -27,19 +27,20 @@ new class extends Component {
         $this->locacao = $this->imovel->locacaoAtiva;
 
         if (!empty($this->locacao)) {
-            $this->locacao->load(['inquilino' => function ($query) {
-                $query->select(['id', 'nome', 'documento', 'email', 'telefone']);
-            }]);
+            $this->locacao->loadMissing([
+                'inquilino' => function ($query) {
+                    $query->select(['id', 'nome', 'documento', 'email', 'telefone']);
+                },
+                'pagamentos' => function ($query) {
+                    $query->select(['locacao_id', 'data_referencia', 'data_vencimento', 'data_pagamento', 'data_pagamento', 'valor', 'status'])
+                        ->orderBy('data_referencia', 'desc');
+                },
+            ]);
         }
 
         $this->imovel = $imovel->loadMissing(['endereco']);
 
-        // Mock data para o histórico de pagamentos
-        $this->paymentHistory = [
-            ['month' => 'Novembro 2025', 'amount' => 'R$ 2.500', 'status' => 'received', 'date' => '05/11/2025'],
-            ['month' => 'Outubro 2025', 'amount' => 'R$ 2.500', 'status' => 'received', 'date' => '05/10/2025'],
-            ['month' => 'Setembro 2025', 'amount' => 'R$ 2.500', 'status' => 'received', 'date' => '05/09/2025'],
-        ];
+        $this->paymentHistory = $this->locacao->pagamentos->toArray();
     }
 }; ?>
 
@@ -137,26 +138,7 @@ new class extends Component {
                 </x-mary-card>
 
                 {{-- 2. Card de Histórico de Pagamentos --}}
-                {{--//TODO: implementar componente reaproveitavel de historico de pagamentos --}}
-                <x-mary-card class="shadow border border-base-300">
-                    <h2 class="text-xl font-bold mb-4">{{__('messages.property_show_payment_history_title')}}</h2>
-                    <div class="space-y-3">
-                        @forelse ($this->paymentHistory as $payment)
-                        <div class="flex items-center justify-between p-4 bg-base-200/50 rounded-lg">
-                            <div>
-                                <p class="font-medium text-base-content">{{ $payment['month'] }}</p>
-                                <p class="text-sm text-base-content/70">{{__('messages.property_show_paid_in_label')}} {{ $payment['date'] }}</p>
-                            </div>
-                            <div class="text-right">
-                                <p class="font-semibold text-base-content">{{ $payment['amount'] }}</p>
-                                <x-mary-badge value="Recebido" class="badge-success badge-outline" />
-                            </div>
-                        </div>
-                        @empty
-                        <p class="text-base-content/70">{{__('messages.property_show_empty_payment_history_title')}}</p>
-                        @endforelse
-                    </div>
-                </x-mary-card>
+                <x-pagamentos.pagamento-card :pagamentos="$this->paymentHistory" />
 
             </div>
 
