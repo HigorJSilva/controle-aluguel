@@ -3,9 +3,9 @@
     <a href="{{ route('locacoes.show', $locacao->id)}}" wire:navigate>
         <x-mary-badge :value="$locacao->status ? __('messages.rent_index_active_label') : __('messages.rent_index_inactive_label')" @class([ 'absolute top-4 right-4' ,
             match ($locacao->status) {
-            true => 'badge-success',
-            false => 'badge-error badge-dash',
-            default => 'badge-error'
+            true => 'badge-success badge-soft',
+            false => 'badge-error badge-soft',
+            default => 'badge-error badge-soft' 
             }])/>
 
             <div class="flex-grow">

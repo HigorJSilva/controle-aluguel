@@ -26,11 +26,11 @@ enum StatusImoveis: string
     public static function getCssClass(string $status): string
     {
         return match ($status) {
-            self::ALUGADO->value => 'badge-success',
+            self::ALUGADO->value => 'badge-success badge-soft',
             self::AGUARDANDO_LOCACAO->value => 'badge-success badge-dash',
-            self::INDISPONIVEL->value => 'badge-error',
-            self::EM_MANUTENCAO->value => 'badge-error badge-dash',
-            self::DISPONIVEL->value => 'badge-warning',
+            self::INDISPONIVEL->value => 'badge-error badge-soft',
+            self::EM_MANUTENCAO->value => 'badge-error badge-soft badge-dash',
+            self::DISPONIVEL->value => 'badge-success badge-dash',
             default => 'badge-error'
         };
     }
