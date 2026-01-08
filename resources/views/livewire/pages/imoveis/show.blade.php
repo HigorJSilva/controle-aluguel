@@ -40,7 +40,7 @@ new class extends Component {
 
         $this->imovel = $imovel->loadMissing(['endereco']);
 
-        $this->paymentHistory = $this->locacao->pagamentos->toArray();
+        $this->paymentHistory = isset($this->locacao->pagamentos) ? $this->locacao->pagamentos->toArray() : [];
     }
 }; ?>
 

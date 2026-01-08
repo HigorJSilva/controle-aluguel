@@ -38,7 +38,7 @@ new class extends Component {
             ]);
         }
 
-        $this->paymentHistory = $this->locacao->pagamentos->toArray();
+        $this->paymentHistory = isset($this->locacao->pagamentos) ? $this->locacao->pagamentos->toArray() : [];
     }
 }; ?>
 
