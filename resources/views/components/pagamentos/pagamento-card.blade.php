@@ -4,7 +4,7 @@
           @forelse ($pagamentos as $pagamento)
           <div class="flex items-center justify-between p-4 bg-base-200/50 rounded-lg">
               <div>
-                  <p class="font-medium text-base-content m-2">{{ ucfirst(\Carbon\Carbon::parse($pagamento['data_referencia'])->locale(app()->getLocale())->translatedFormat('F/Y'))}}</p>
+                  <p class="font-medium text-base-content m-2">{{  App\Helpers\Formatacao::dataMesAno($pagamento['data_referencia'])}}</p>
 
                   <div class="flex flex-row gap-6 m-2">
                       <p class="text-sm text-base-content/70">{{__('messages.property_show_due_label')}} {{ App\Helpers\Formatacao::data($pagamento['data_vencimento']) }}</p>
