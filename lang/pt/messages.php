@@ -44,6 +44,7 @@ return [
 
     'property_index_title' => 'Imóveis',
     'property_index_subtitle' => 'Gerencie todas as suas propriedades em um só lugar',
+    'property_index_next_payment' => 'Próx. Pgto:',
     'new_property_button' => 'Nova Propriedade',
     'total_property_stat_tile' => 'Total',
     'total_property_stat_subtile' => 'Propriedades cadastradas',

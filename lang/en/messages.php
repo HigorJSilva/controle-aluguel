@@ -44,6 +44,7 @@ return [
 
     'property_index_title' => 'Properties',
     'property_index_subtitle' => 'Manage all your properties in one place',
+    'property_index_next_payment' => 'Next Payment:',
     'new_property_button' => 'New Property',
     'total_property_stat_tile' => 'Total',
     'total_property_stat_subtile' => 'Registered properties',
