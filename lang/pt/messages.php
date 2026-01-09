@@ -172,4 +172,25 @@ return [
 
     'rent_show_property_title' => 'Propriedade',
     'rent_show_property_details' => 'Ver Detalhes do Imóvel',
+
+    'payment_index_property' => 'Imóvel',
+    'payment_index_tenant' => 'Inquilino',
+    'payment_index_reference' => 'Referência',
+    'payment_index_due_date' => 'Vencimento',
+    'payment_index_payment_date' => 'Pagamento',
+    'payment_index_amount' => 'Valor',
+    'payment_index_status' => 'Status',
+    'payment_index_title' => 'Pagamentos',
+    'payment_index_subtitle' => 'Gerencie os pagamentos de aluguéis das suas propriedades',
+    'new_payment_button' => 'Novo Pagamento',
+    'input_payment_search' => 'Procure por propriedade ou inquilino',
+    'input_payment_reference_label' => 'Mês Referência',
+    'input_payment_reference_placeholder' => 'Mês Referência',
+    'select_payment_status' => 'Selecione...',
+    'payment_index_paid_label' => 'Recebido',
+    'payment_index_pending_label' => 'Pedente',
+    'payment_index_late_label' => 'Em atraso',
+
+    'no_payment_found_title' => 'Nenhum pagamento encontrado',
+    'no_payment_found_subtitle' => 'Tente ajustar os filtros ou espere a geração',
 ];
