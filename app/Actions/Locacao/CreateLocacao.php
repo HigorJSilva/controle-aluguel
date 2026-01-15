@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Actions\Locacao;
 
+use App\Actions\Pagamento\GerarFaturas;
 use App\DTO\Locacao\CreateLocacaoDTO;
 use App\Enums\StatusImoveis;
 use App\Enums\UserStatus;
@@ -39,8 +40,7 @@ final class CreateLocacao
             $locacao->save();
             $imovel->save();
 
-            // TODO: criar proximo pagamento
-
+            GerarFaturas::run($locacao);
             DB::commit();
 
             return $locacao;
