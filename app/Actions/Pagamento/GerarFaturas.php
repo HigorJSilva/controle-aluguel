@@ -16,7 +16,6 @@ final class GerarFaturas
 {
     public static function run($locacao): void
     {
-        DB::beginTransaction();
 
         try {
             $hoje = Carbon::today();
@@ -44,13 +43,11 @@ final class GerarFaturas
                     'proxima_geracao_fatura' => $proximaGeracao,
                 ]);
             });
-            DB::commit();
         } catch (Throwable $e) {
             if ($e instanceof DomainException) {
                 throw $e;
             }
 
-            DB::rollBack();
             Log::error('GerarFaturas error', ['Arquivo' => $e->getFile(), 'Linha' => $e->getLine(), 'Mensagem' => $e->getMessage(), 'Locação' => $locacao->id]);
         }
     }
