@@ -172,6 +172,9 @@ return [
 
     'rent_show_property_title' => 'Propriedade',
     'rent_show_property_details' => 'Ver Detalhes do Imóvel',
+    
+    'rent_show_rent_title' => 'Locação',
+    'rent_show_rent_details' => 'Ver Detalhes da Locação',
 
     'payment_index_property' => 'Imóvel',
     'payment_index_tenant' => 'Inquilino',
@@ -193,4 +196,7 @@ return [
 
     'no_payment_found_title' => 'Nenhum pagamento encontrado',
     'no_payment_found_subtitle' => 'Tente ajustar os filtros ou espere a geração',
+
+    'payment_show_title' => 'Detalhes do Pagamento',
+    'payment_show_description' => 'Descrição'
 ];
