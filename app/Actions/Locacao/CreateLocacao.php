@@ -9,6 +9,7 @@ use App\DTO\Locacao\CreateLocacaoDTO;
 use App\Enums\StatusImoveis;
 use App\Enums\UserStatus;
 use App\Models\Imovel;
+use App\Models\Inquilino;
 use App\Models\Locacao;
 use DomainException;
 use Illuminate\Support\Facades\Auth;
@@ -28,7 +29,7 @@ final class CreateLocacao
             }
 
             $imovel = Imovel::select(['id', 'user_id', 'status'])->where('id', $locacaoDto->imovelId)->first();
-            $inquilino = Imovel::select(['id', 'user_id'])->where('id', $locacaoDto->inquilinoId)->first();
+            $inquilino = Inquilino::select(['id', 'user_id'])->where('id', $locacaoDto->inquilinoId)->first();
 
             if ($imovel->user_id !== Auth::user()->id || $inquilino->user_id !== Auth::user()->id) {
                 throw new DomainException(__('messages.unauthorized_user'), 404);
