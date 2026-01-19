@@ -166,7 +166,6 @@ return [
     'input_rent_tenant_placeholder' => 'Selecione um inquilino...',
 
     'rent_show_title' => 'Termos do Aluguel',
-    'rent_show_title' => 'Termos do Aluguel',
 
     'rent_show_tenant_details' => 'Ver Detalhes do Inquilino',
 
@@ -191,12 +190,14 @@ return [
     'input_payment_reference_placeholder' => 'Mês Referência',
     'select_payment_status' => 'Selecione...',
     'payment_index_paid_label' => 'Recebido',
-    'payment_index_pending_label' => 'Pedente',
+    'payment_index_pending_label' => 'Pendente',
     'payment_index_late_label' => 'Em atraso',
 
     'no_payment_found_title' => 'Nenhum pagamento encontrado',
     'no_payment_found_subtitle' => 'Tente ajustar os filtros ou espere a geração',
 
     'payment_show_title' => 'Detalhes do Pagamento',
-    'payment_show_description' => 'Descrição'
+    'payment_show_description' => 'Descrição',
+
+    'payment_edit_title' => 'Editar Pagamento',
 ];

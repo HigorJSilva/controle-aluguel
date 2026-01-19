@@ -51,7 +51,7 @@ new class extends Component {
 
         <x-slot:actions>
             <x-mary-button :label="__('messages.back')" icon="o-arrow-left" :link="route('pagamentos.index')" wire:navigate class="btn-ghost" />
-            <x-mary-button :label="__('messages.edit')" icon="o-pencil" :link="route('pagamentos.edit', $pagamento->locacao->id)" wire:navigate class="btn-primary" />
+            <x-mary-button :label="__('messages.edit')" icon="o-pencil" :link="route('pagamentos.edit', $pagamento->id)" wire:navigate class="btn-primary" />
         </x-slot:actions>
 
         <x-slot:content>

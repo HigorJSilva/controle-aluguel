@@ -173,4 +173,33 @@ return [
 
     'rent_show_property_title' => 'Property',
     'rent_show_property_details' => 'Check Property Details',
+
+    'rent_show_rent_title' => 'Lease',
+    'rent_show_rent_details' => 'See Lease Info',
+
+    'payment_index_property' => 'Property',
+    'payment_index_tenant' => 'Tenant',
+    'payment_index_reference' => 'Reference',
+    'payment_index_due_date' => 'Due Date',
+    'payment_index_payment_date' => 'Payment Date',
+    'payment_index_amount' => 'Amount',
+    'payment_index_status' => 'Status',
+    'payment_index_title' => 'Payments',
+    'payment_index_subtitle' => 'Manage the rent payments',
+    'new_payment_button' => 'New Payment',
+    'input_payment_search' => 'Search for property or tenant',
+    'input_payment_reference_label' => 'Reference Month',
+    'input_payment_reference_placeholder' => 'Reference Month',
+    'select_payment_status' => 'Select...',
+    'payment_index_paid_label' => 'Paid',
+    'payment_index_pending_label' => 'Pending',
+    'payment_index_late_label' => 'Late',
+
+    'no_payment_found_title' => 'No Payment Found',
+    'no_payment_found_subtitle' => 'Try to ajust filters or wait for the creation',
+
+    'payment_show_title' => 'Payment Info',
+    'payment_show_description' => 'Description',
+
+    'payment_edit_title' => 'Edit Payment',
 ];
