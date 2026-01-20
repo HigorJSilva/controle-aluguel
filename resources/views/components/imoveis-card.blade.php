@@ -21,7 +21,7 @@
                     <div class="flex items-center gap-2">
                         <x-mary-icon name="o-currency-dollar" class="w-4 h-4 text-base-content/70" />
                         <span class="text-sm font-semibold text-base-content">
-                            R$ {{ number_format($imovel->valor_aluguel_sugerido ?? 0, 2, ',', '.') }}
+                            R$ {{  App\Helpers\Formatacao::dinheiro($imovel->valor_aluguel_sugerido) }}
                         </span>
                         <span class="text-sm text-base-content/70">/ mês</span>
                     </div>
@@ -34,7 +34,7 @@
                     <div class="flex items-center gap-2">
                         <x-mary-icon name="o-calendar-days" class="w-4 h-4 text-base-content/70" />
                         <span class="text-sm text-base-content/70">
-                            Próx. Pgto: {{ $imovel->proximo_pagamento ?? __('messages.next_payment_property_title') }}
+                           {{__('messages.property_index_next_payment')}} {{ !empty($imovel->locacaoAtiva->proxima_fatura) ? App\Helpers\Formatacao::data($imovel->locacaoAtiva->proxima_fatura) : __('messages.next_payment_property_title') }}
                         </span>
                     </div>
                 </div>

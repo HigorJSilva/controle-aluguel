@@ -44,6 +44,7 @@ return [
 
     'property_index_title' => 'Properties',
     'property_index_subtitle' => 'Manage all your properties in one place',
+    'property_index_next_payment' => 'Next Payment:',
     'new_property_button' => 'New Property',
     'total_property_stat_tile' => 'Total',
     'total_property_stat_subtile' => 'Registered properties',
@@ -98,6 +99,14 @@ return [
     'input_property_description_label' => 'Description',
     'input_property_description_placeholder' => 'Additional property description...',
 
+    'property_show_current_property_label' => 'Current Lease',
+    'property_show_rent_label' => 'Lease',
+    'tenant_show_available_tenant_title' => 'Tenant available for rent',
+    'tenant_show_available_tenant_subtitle' => 'Match with a property',
+    'show_start_label' => 'Start',
+    'show_end_label' => 'End',
+    'new_rent_button' => 'New Lease',
+
     'tenant_create_title' => 'Register New Tenant',
     'tenant_edit_title' => 'Edit Tenant',
     'input_tenant_name_label' => 'Full Name',
@@ -116,7 +125,8 @@ return [
     'input_payment_end_label' => 'Lease End',
     'input_payment_next_label' => 'Next Payment',
 
-    'user_inactive' => 'Inactive user. Please check your subscription status',
+    'inactive_user' => 'Inactive user. Please check your subscription status',
+    'unauthorized_user' => 'Registros não encontrados',
 
     'tenant_index_title' => 'Tenants',
     'tenant_index_subtitle' => 'Manage registered tenants',
@@ -126,4 +136,70 @@ return [
     'no_tenant_found_subtitle' => 'Try adjusting filters or add a new tenant',
     'delete_tenant_modal_title' => 'Delete Tenant',
     'delete_tenant_modal_subtitle' => 'Are you sure? This action cannot be undone.',
+    'no_tenant_found_subtitle' => 'Try different filters or add a new tenant',
+    'delete_tenant_modal_title' => 'Delete Tenant',
+    'delete_tenant_modal_subtitle' => 'Are you sure? This cannot be undone.',
+
+    'rent_index_title' => 'Leases',
+    'input_rent_search' => 'Search for property or tenant',
+    'rent_index_subtitle' => 'Manage all property leases',
+    'rent_index_tenant_label' => 'Tenant',
+    'rent_index_rent_label' => 'Lease',
+    'rent_index_span_label' => 'Period',
+    'rent_index_indefinite_span_label' => 'indefinite',
+    'rent_index_active_label' => 'Active',
+    'rent_index_inactive_label' => 'Inactive',
+    'no_rent_found_title' => 'No Lease found',
+    'no_rent_found_subtitle' => 'Try different filters or add a new lease',
+
+    'input_rent_due_day' => 'Due day',
+    'rent_create_rent_title' => 'Lease',
+    'input_rent_property_label' => 'Property',
+    'input_rent_tenant_label' => 'Tenant',
+    'rent_create_contract_title' => 'Contract',
+    'input_rent_amount_label' => 'Monthly Amount (R$)',
+    'input_rent_amount_placeholder' => '1.500,00',
+    'input_tenant_due_day_placeholder' => 'Select a day',
+    'input_rent_start_date_label' => 'Start date',
+    'input_rent_start_date_placeholder' => 'Select start date',
+    'input_rent_end_date_label' => 'End date',
+    'input_tenant_end_date_placeholder' => 'Select end date',
+    'input_rent_property_placeholder' => 'Select a property...',
+    'input_rent_tenant_placeholder' => 'Select a tenant...',
+
+    'rent_show_title' => 'Lease Info',
+
+    'rent_show_tenant_details' => 'Check Tenant Details',
+
+    'rent_show_property_title' => 'Property',
+    'rent_show_property_details' => 'Check Property Details',
+
+    'rent_show_rent_title' => 'Lease',
+    'rent_show_rent_details' => 'See Lease Info',
+
+    'payment_index_property' => 'Property',
+    'payment_index_tenant' => 'Tenant',
+    'payment_index_reference' => 'Reference',
+    'payment_index_due_date' => 'Due Date',
+    'payment_index_payment_date' => 'Payment Date',
+    'payment_index_amount' => 'Amount',
+    'payment_index_status' => 'Status',
+    'payment_index_title' => 'Payments',
+    'payment_index_subtitle' => 'Manage the rent payments',
+    'new_payment_button' => 'New Payment',
+    'input_payment_search' => 'Search for property or tenant',
+    'input_payment_reference_label' => 'Reference Month',
+    'input_payment_reference_placeholder' => 'Reference Month',
+    'select_payment_status' => 'Select...',
+    'payment_index_paid_label' => 'Paid',
+    'payment_index_pending_label' => 'Pending',
+    'payment_index_late_label' => 'Late',
+
+    'no_payment_found_title' => 'No Payment Found',
+    'no_payment_found_subtitle' => 'Try to ajust filters or wait for the creation',
+
+    'payment_show_title' => 'Payment Info',
+    'payment_show_description' => 'Description',
+
+    'payment_edit_title' => 'Edit Payment',
 ];

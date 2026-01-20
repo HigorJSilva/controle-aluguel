@@ -3,6 +3,11 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
+        "services:up": "./vendor/bin/sail up -d",
+        "services:down": "./vendor/bin/sail down",
+        "test": "./vendor/bin/sail pest",
+        "test:coverage": "./vendor/bin/sail pest --coverage-html ./coverage",
+        "lint": "./vendor/bin/pint && ./vendor/bin/rector",
         "dev": "vite"
     },
     "dependencies": {

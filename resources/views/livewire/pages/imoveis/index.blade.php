@@ -32,7 +32,7 @@ new class extends Component {
             ->where('user_id', Auth::user()->id)
             ->with([
                 'endereco:imovel_id,endereco,cidade,estado,bairro',
-                // 'inquilino:id,nome,imovel_id',
+                'locacaoAtiva:id,imovel_id,proxima_fatura'
             ])
             ->when($this->search, function (Builder $q) {
                 $q->where('titulo', 'ilike', "%$this->search%")

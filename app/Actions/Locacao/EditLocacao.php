@@ -6,8 +6,10 @@ namespace App\Actions\Locacao;
 
 use App\DTO\Locacao\EditLocacaoDTO;
 use App\Enums\StatusImoveis;
+use App\Enums\StatusPagamentos;
 use App\Enums\UserStatus;
 use App\Models\Imovel;
+use App\Models\Inquilino;
 use App\Models\Locacao;
 use DomainException;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +29,7 @@ final class EditLocacao
             }
 
             $imovel = Imovel::select(['id', 'user_id', 'status'])->where('id', $locacaoDto->imovelId)->first();
-            $inquilino = Imovel::select(['id', 'user_id'])->where('id', $locacaoDto->inquilinoId)->first();
+            $inquilino = Inquilino::select(['id', 'user_id'])->where('id', $locacaoDto->inquilinoId)->first();
 
             if ($imovel->user_id !== Auth::user()->id || $inquilino->user_id !== Auth::user()->id) {
                 throw new DomainException(__('messages.unauthorized_user'), 404);
@@ -35,11 +37,18 @@ final class EditLocacao
 
             $locacao->update($locacaoDto->toArray());
 
-            $imovel->status = $locacaoDto ? StatusImoveis::ALUGADO->value : StatusImoveis::DISPONIVEL->value;
+            $imovel->status = $locacaoDto->status ? StatusImoveis::ALUGADO->value : StatusImoveis::DISPONIVEL->value;
 
             $imovel->save();
 
-            // TODO: cancelar proximos pagamentos caso seja inativada
+            if (! $locacaoDto->status) {
+                $locacao->loadMissing(['pagamentos' => function ($query): void {
+                    $query->select(['locacao_id', 'status'])->whereIn('status', [StatusPagamentos::PENDENTE->value, StatusPagamentos::ATRASADO->value])
+                        ->orderBy('data_referencia', 'desc');
+                }]);
+
+                $locacao->pagamentos()->update(['status' => StatusPagamentos::CANCELADO]);
+            }
 
             DB::commit();
 

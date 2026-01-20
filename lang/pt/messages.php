@@ -44,6 +44,7 @@ return [
 
     'property_index_title' => 'Imóveis',
     'property_index_subtitle' => 'Gerencie todas as suas propriedades em um só lugar',
+    'property_index_next_payment' => 'Próx. Pgto:',
     'new_property_button' => 'Nova Propriedade',
     'total_property_stat_tile' => 'Total',
     'total_property_stat_subtile' => 'Propriedades cadastradas',
@@ -57,7 +58,8 @@ return [
     'property_show_title' => 'Informações da Propriedade',
     'property_show_payment_history_title' => 'Histórico de Pagamentos',
     'property_show_empty_payment_history_title' => 'Ainda não existem pagamentos',
-    'property_show_paid_in_label' => 'Pago em',
+    'property_show_paid_in_label' => 'Pago em:',
+    'property_show_due_label' => 'Venc. :',
     'property_show_current_tenant_label' => 'Inquilino Atual',
     'property_show_available_property_title' => 'Propriedade Disponível',
     'property_show_available_property_subtitle' => 'Esta propriedade está disponível para aluguel',
@@ -164,10 +166,38 @@ return [
     'input_rent_tenant_placeholder' => 'Selecione um inquilino...',
 
     'rent_show_title' => 'Termos do Aluguel',
-    'rent_show_title' => 'Termos do Aluguel',
 
     'rent_show_tenant_details' => 'Ver Detalhes do Inquilino',
 
     'rent_show_property_title' => 'Propriedade',
     'rent_show_property_details' => 'Ver Detalhes do Imóvel',
+
+    'rent_show_rent_title' => 'Locação',
+    'rent_show_rent_details' => 'Ver Detalhes da Locação',
+
+    'payment_index_property' => 'Imóvel',
+    'payment_index_tenant' => 'Inquilino',
+    'payment_index_reference' => 'Referência',
+    'payment_index_due_date' => 'Vencimento',
+    'payment_index_payment_date' => 'Pagamento',
+    'payment_index_amount' => 'Valor',
+    'payment_index_status' => 'Status',
+    'payment_index_title' => 'Pagamentos',
+    'payment_index_subtitle' => 'Gerencie os pagamentos de aluguéis das suas propriedades',
+    'new_payment_button' => 'Novo Pagamento',
+    'input_payment_search' => 'Procure por propriedade ou inquilino',
+    'input_payment_reference_label' => 'Mês Referência',
+    'input_payment_reference_placeholder' => 'Mês Referência',
+    'select_payment_status' => 'Selecione...',
+    'payment_index_paid_label' => 'Recebido',
+    'payment_index_pending_label' => 'Pendente',
+    'payment_index_late_label' => 'Em atraso',
+
+    'no_payment_found_title' => 'Nenhum pagamento encontrado',
+    'no_payment_found_subtitle' => 'Tente ajustar os filtros ou espere a geração',
+
+    'payment_show_title' => 'Detalhes do Pagamento',
+    'payment_show_description' => 'Descrição',
+
+    'payment_edit_title' => 'Editar Pagamento',
 ];
