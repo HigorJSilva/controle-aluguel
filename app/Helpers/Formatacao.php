@@ -54,7 +54,8 @@ final class Formatacao
         return Carbon::createFromFormat('Y-m-d', $value)->format('d/m/Y');
     }
 
-    public static function dataMesAno(string $dataReferencia): string {
+    public static function dataMesAno(string $dataReferencia): string
+    {
         return ucfirst(Carbon::parse($dataReferencia)->locale(app()->getLocale())->translatedFormat('F/Y'));
     }
 }

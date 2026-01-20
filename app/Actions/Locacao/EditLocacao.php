@@ -41,8 +41,8 @@ final class EditLocacao
 
             $imovel->save();
 
-            if (!$locacaoDto->status) {
-                $locacao->loadMissing(['pagamentos' => function ($query) {
+            if (! $locacaoDto->status) {
+                $locacao->loadMissing(['pagamentos' => function ($query): void {
                     $query->select(['locacao_id', 'status'])->whereIn('status', [StatusPagamentos::PENDENTE->value, StatusPagamentos::ATRASADO->value])
                         ->orderBy('data_referencia', 'desc');
                 }]);

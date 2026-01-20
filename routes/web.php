@@ -47,7 +47,7 @@ Route::middleware(['auth'])->group(function () {
         Volt::route('/{locacao}', 'pages.locacoes.show')->name('show');
     });
 
-     Route::prefix('pagamentos')->name('pagamentos.')->group(function () {
+    Route::prefix('pagamentos')->name('pagamentos.')->group(function () {
         Volt::route('/', 'pages.pagamentos.index')->name('index');
         Volt::route('/create', 'pages.pagamentos.create')->name('create');
         Volt::route('/{pagamento}/edit', 'pages.pagamentos.edit')->name('edit');

@@ -171,7 +171,7 @@ return [
 
     'rent_show_property_title' => 'Propriedade',
     'rent_show_property_details' => 'Ver Detalhes do Imóvel',
-    
+
     'rent_show_rent_title' => 'Locação',
     'rent_show_rent_details' => 'Ver Detalhes da Locação',
 

@@ -7,7 +7,6 @@ namespace App\Actions\Pagamento;
 use App\DTO\Pagamento\EditPagamentoDTO;
 use App\Enums\StatusPagamentos;
 use App\Enums\UserStatus;
-
 use App\Models\Pagamento;
 use Carbon\Carbon;
 use DomainException;
@@ -28,14 +27,14 @@ final class EditPagamento
             }
 
             $pagamento = $pagamento->loadMissing([
-                'locacao' => function ($query) {
+                'locacao' => function ($query): void {
                     $query->select(['id', 'imovel_id', 'inquilino_id'])->withTrashed();
                 },
-                'locacao.inquilino' => function ($query) {
+                'locacao.inquilino' => function ($query): void {
                     $query->select(['id', 'user_id'])
                         ->withTrashed();
                 },
-                'locacao.imovel' => function ($query) {
+                'locacao.imovel' => function ($query): void {
                     $query->select(['id', 'user_id'])
                         ->withTrashed();
                 },
@@ -48,12 +47,12 @@ final class EditPagamento
             $payload = $pagamentoDto->toArray();
 
             if ($pagamento->status !== StatusPagamentos::RECEBIDO && $pagamentoDto->status === StatusPagamentos::RECEBIDO) {
-                $payload['dataPagamento'] =  empty($pagamentoDto->dataPagamento) ?
+                $payload['dataPagamento'] = in_array($pagamentoDto->dataPagamento, [null, '', '0'], true) ?
                     Carbon::now()->format('Y-m-d')
                     : $pagamentoDto->dataPagamento;
             }
 
-            if($pagamentoDto->status !== StatusPagamentos::RECEBIDO && !empty($pagamento->data_pagamento)){
+            if ($pagamentoDto->status !== StatusPagamentos::RECEBIDO && ! empty($pagamento->data_pagamento)) {
                 $payload['data_pagamento'] = null;
             }
 
