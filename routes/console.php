@@ -11,3 +11,4 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote');
 
 Schedule::command('locacoes:gerar-faturas')->dailyAt('06:00')->withoutOverlapping();
+Schedule::command('locacoes:vencimento-faturas')->dailyAt('06:00')->withoutOverlapping();
