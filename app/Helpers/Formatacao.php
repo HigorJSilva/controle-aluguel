@@ -58,4 +58,9 @@ final class Formatacao
     {
         return ucfirst(Carbon::parse($dataReferencia)->locale(app()->getLocale())->translatedFormat('F/Y'));
     }
+
+    public static function dataAno(string $dataReferencia): string
+    {
+        return ucfirst(Carbon::parse($dataReferencia)->locale(app()->getLocale())->translatedFormat('F'));
+    }
 }
