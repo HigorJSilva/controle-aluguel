@@ -38,4 +38,11 @@ final class Imovel extends Model
             ->where('status', true)
             ->latest();
     }
+
+    public function locacao(): HasOne
+    {
+        return $this->hasOne(Locacao::class)
+            ->where('status', true)
+            ->latest();
+    }
 }
