@@ -200,4 +200,18 @@ return [
     'payment_show_description' => 'Descrição',
 
     'payment_edit_title' => 'Editar Pagamento',
+
+    'property_dashboard_title' => 'Dashboard',
+    'property_dashboard_subtitle' => 'Gerencie suas locações',
+
+    'dashboard_month_income_title' => 'Receita do Mês',
+    'dashboard_ocupation_rate_title' => 'Taxa de Ocupação',
+    'dashboard_next_payments_title' => 'Próximos Recebimentos',
+    'dashboard_incoming_income_title' => 'Receita Esperada para ',
+
+    'dashboard_month_income_subtitle' => 'Total recebido em ',
+    'dashboard_ocupation_rate_subtitle1' => ' de ',
+    'dashboard_ocupation_rate_subtitle2' => ' unidades alugadas ',
+    'dashboard_next_payments_subtitle' => ' pagamentos pendentes',
+    'dashboard_incoming_income_subtitle' => 'Projeção para Fevereiro',
 ];

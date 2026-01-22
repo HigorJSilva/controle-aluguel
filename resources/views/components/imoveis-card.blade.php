@@ -1,3 +1,8 @@
+@props([
+'actions' => true,
+'imovel',
+])
+
 <x-mary-card class="flex flex-col relative shadow border border-base-300 group hover:shadow-lg hover:scale-[1.02] hover:-translate-y-1
         hover:border-base-300 transition-transform duration-200">
     <a href="{{ route('imoveis.show', $imovel->id) }}" wire:navigate>
@@ -21,7 +26,7 @@
                     <div class="flex items-center gap-2">
                         <x-mary-icon name="o-currency-dollar" class="w-4 h-4 text-base-content/70" />
                         <span class="text-sm font-semibold text-base-content">
-                            R$ {{  App\Helpers\Formatacao::dinheiro($imovel->valor_aluguel_sugerido) }}
+                            R$ {{ App\Helpers\Formatacao::dinheiro($imovel->valor_aluguel_sugerido) }}
                         </span>
                         <span class="text-sm text-base-content/70">/ mês</span>
                     </div>
@@ -34,7 +39,7 @@
                     <div class="flex items-center gap-2">
                         <x-mary-icon name="o-calendar-days" class="w-4 h-4 text-base-content/70" />
                         <span class="text-sm text-base-content/70">
-                           {{__('messages.property_index_next_payment')}} {{ !empty($imovel->locacaoAtiva->proxima_fatura) ? App\Helpers\Formatacao::data($imovel->locacaoAtiva->proxima_fatura) : __('messages.next_payment_property_title') }}
+                            {{__('messages.property_index_next_payment')}} {{ !empty($imovel->locacaoAtiva->proxima_fatura) ? App\Helpers\Formatacao::data($imovel->locacaoAtiva->proxima_fatura) : __('messages.next_payment_property_title') }}
                         </span>
                     </div>
                 </div>
@@ -42,6 +47,7 @@
     </a>
 
     <!-- Ações do Card -->
+    @if($actions)
     <x-slot:actions class="mt-4 pt-4 border-t border-base-200">
         <x-mary-button :label="__('messages.edit')" icon="o-pencil" :link="route('imoveis.edit', $imovel->id)" class="btn-sm btn-ghost" />
         <x-mary-button
@@ -51,4 +57,5 @@
             class="btn-sm btn-ghost text-error"
             spinner />
     </x-slot:actions>
+    @endif
 </x-mary-card>

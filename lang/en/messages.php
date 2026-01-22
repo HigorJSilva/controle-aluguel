@@ -202,4 +202,18 @@ return [
     'payment_show_description' => 'Description',
 
     'payment_edit_title' => 'Edit Payment',
+
+    'property_dashboard_title' => 'Dashboard',
+    'property_dashboard_subtitle' => 'Manage your performance',
+
+    'dashboard_month_income_title' => 'Monthly Income',
+    'dashboard_ocupation_rate_title' => 'Ocupation Rate',
+    'dashboard_next_payments_title' => 'Upcoming Payments',
+    'dashboard_incoming_income_title' => 'Incoming Income for ',
+
+    'dashboard_month_income_subtitle' => 'Total Income for ',
+    'dashboard_ocupation_rate_subtitle1' => ' of ',
+    'dashboard_ocupation_rate_subtitle2' => ' units leased ',
+    'dashboard_next_payments_subtitle' => ' pending payments',
+    'dashboard_incoming_income_subtitle' => 'Expectect Income for ',
 ];
