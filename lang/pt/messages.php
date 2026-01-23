@@ -214,4 +214,42 @@ return [
     'dashboard_ocupation_rate_subtitle2' => ' unidades alugadas ',
     'dashboard_next_payments_subtitle' => ' pagamentos pendentes',
     'dashboard_incoming_income_subtitle' => 'Projeção para Fevereiro',
+
+    'landing_page_title1' => 'Gestão de Aluguéis',
+    'landing_page_title2' => 'Simples e Inteligente',
+    'landing_page_subtitle' => 'Abandone as planilhas. Centralize imóveis, inquilinos e financeiro em uma plataforma moderna feita para proprietários e imobiliárias.',
+    'landing_page_start' => 'Começar Gratuitamente',
+    'landing_page_demo' => 'Ver Demonstração',
+    'landing_page_feature_section_title' => 'Tudo que você precisa em um só lugar',
+    'landing_page_feature_section_subtitle' => 'Ferramentas poderosas para automatizar sua rotina e garantir que você nunca perca um pagamento.',
+    'landing_page_testemonials_section_title'  => 'Quem usa, aprova!',
+    'landing_page_faq_section_subtitle'  => 'Perguntas Frequentes',
+
+    'landing_page_feature1_title' => 'Gestão de Imóveis',
+    'landing_page_feature1_subtitle' => 'Cadastre e organize todos os seus imóveis em um só lugar, com fotos, documentos e informações detalhadas.',
+
+    'landing_page_feature2_title' => 'Controle de Inquilinos',
+    'landing_page_feature2_subtitle' => 'Mantenha um histórico completo de todos os inquilinos, contratos e comunicações.',
+
+    'landing_page_feature3_title' => 'Controle Financeiro',
+    'landing_page_feature3_subtitle' => 'Acompanhe pagamentos, inadimplência e recebimentos de forma simples e organizada.',
+
+    'landing_page_testemonial1_role' => 'Investidor Imobiliário',
+    'landing_page_testemonial1_content' => 'Transformou a forma como gerencio meus 15 imóveis. Antes eu perdia horas com planilhas, agora tudo está organizado e acessível.',
+
+    'landing_page_testemonial2_role' => 'Corretora de Imóveis',
+    'landing_page_testemonial2_content' => 'Sistema intuitivo e completo. Meus clientes adoram a transparência nos relatórios e eu economizo tempo no dia a dia.',
+
+    'landing_page_testemonial3_role' => 'Proprietário',
+    'landing_page_testemonial3_content' => 'A funcionalidade de alerta de pagamentos reduziu a inadimplência dos meus inquilinos em 80%. Recomendo muito!',
+
+    'landing_page_faq1_question' => 'Posso testar gratuitamente?',
+    'landing_page_faq1_answer' => 'Sim! Oferecemos um período de teste de 14 dias com acesso a todas as funcionalidades, sem necessidade de cartão de crédito.',
+
+    'landing_page_faq2_question' => 'Serve para imobiliárias?',
+    'landing_page_faq2_answer' => 'Com certeza, atendendo desde proprietários individuais até grandes imobiliárias.',
+
+    'landing_page_faq3_question' => 'Como funciona o suporte?',
+    'landing_page_faq3_answer' => 'Nosso time de suporte está disponível via chat e email em horário comercial para ajudar com qualquer dúvida técnica ou operacional.',
+
 ];

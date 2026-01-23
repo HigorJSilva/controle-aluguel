@@ -130,6 +130,7 @@ return [
     'appearance' => [
         'app_layout' => env('APP_LAYOUT', 'sidebar'),
         'login_layout' => env('LOGIN_LAYOUT', 'card'),
+        'landing_layout' => env('LANDING_LAYOUT', 'nav'),
     ],
 
 ];
