@@ -224,9 +224,8 @@ return [
     'landing_page_demo' => 'View Demo',
     'landing_page_feature_section_title' => 'Everything you need in one place',
     'landing_page_feature_section_subtitle' => 'Powerful tools to automate your routine and ensure you never miss a payment.',
-    'landing_page_testemonials_section_title'  => 'Those who use it, approve!',
-    'landing_page_faq_section_subtitle'  => 'Frequently Asked Questions',
-
+    'landing_page_testemonials_section_title' => 'Those who use it, approve!',
+    'landing_page_faq_section_subtitle' => 'Frequently Asked Questions',
 
     'Rental Management',
     'Simple and Intelligent',
@@ -259,9 +258,9 @@ return [
     'landing_page_faq1_question' => 'Can I try it for free?',
     'landing_page_faq1_answer' => "Yes!' We offer a 14-day trial period with access to all features, no credit card required.",
 
-    'landing_page_faq2_question' => "Is it suitable for real estate agencies?",
-    'landing_page_faq2_answer' => "Absolutely, serving everyone from individual owners to large real estate companies.",
+    'landing_page_faq2_question' => 'Is it suitable for real estate agencies?',
+    'landing_page_faq2_answer' => 'Absolutely, serving everyone from individual owners to large real estate companies.',
 
-    'landing_page_faq3_question' => "How does support work?",
-    'landing_page_faq3_answer' => "Our support team is available via chat and email during business hours to help with any technical or operational questions.",
+    'landing_page_faq3_question' => 'How does support work?',
+    'landing_page_faq3_answer' => 'Our support team is available via chat and email during business hours to help with any technical or operational questions.',
 ];

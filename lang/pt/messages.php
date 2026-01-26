@@ -222,8 +222,8 @@ return [
     'landing_page_demo' => 'Ver Demonstração',
     'landing_page_feature_section_title' => 'Tudo que você precisa em um só lugar',
     'landing_page_feature_section_subtitle' => 'Ferramentas poderosas para automatizar sua rotina e garantir que você nunca perca um pagamento.',
-    'landing_page_testemonials_section_title'  => 'Quem usa, aprova!',
-    'landing_page_faq_section_subtitle'  => 'Perguntas Frequentes',
+    'landing_page_testemonials_section_title' => 'Quem usa, aprova!',
+    'landing_page_faq_section_subtitle' => 'Perguntas Frequentes',
 
     'landing_page_feature1_title' => 'Gestão de Imóveis',
     'landing_page_feature1_subtitle' => 'Cadastre e organize todos os seus imóveis em um só lugar, com fotos, documentos e informações detalhadas.',
