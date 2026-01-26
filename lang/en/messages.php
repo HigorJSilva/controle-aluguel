@@ -216,4 +216,51 @@ return [
     'dashboard_ocupation_rate_subtitle2' => ' units leased ',
     'dashboard_next_payments_subtitle' => ' pending payments',
     'dashboard_incoming_income_subtitle' => 'Expectect Income for ',
+
+    'landing_page_title1' => 'Rental Management',
+    'landing_page_title2' => 'Simple and Intelligent',
+    'landing_page_subtitle' => 'Ditch the spreadsheets. Centralize properties, tenants, and finances on a modern platform designed for landlords and real estate agencies.',
+    'landing_page_start' => 'Start for Free',
+    'landing_page_demo' => 'View Demo',
+    'landing_page_feature_section_title' => 'Everything you need in one place',
+    'landing_page_feature_section_subtitle' => 'Powerful tools to automate your routine and ensure you never miss a payment.',
+    'landing_page_testemonials_section_title' => 'Those who use it, approve!',
+    'landing_page_faq_section_subtitle' => 'Frequently Asked Questions',
+
+    'Rental Management',
+    'Simple and Intelligent',
+    'Ditch the spreadsheets. Centralize properties, tenants, and finances on a modern platform designed for landlords and real estate agencies.',
+    'Start for Free',
+    'View Demo',
+    'Everything you need in one place',
+    'Powerful tools to automate your routine and ensure you never miss a payment.',
+    'Those who use it, approve!',
+    'Frequently Asked Questions',
+
+    'landing_page_feature1_title' => 'Property Management',
+    'landing_page_feature1_subtitle' => 'Register and organize all your properties in one place, with photos, documents, and detailed information.',
+
+    'landing_page_feature2_title' => 'Tenant Management',
+    'landing_page_feature2_subtitle' => 'Maintain a complete history of all tenants, contracts, and communications.',
+
+    'landing_page_feature3_title' => 'Financial Control',
+    'landing_page_feature3_subtitle' => 'Track payments, delinquencies, and receipts in a simple and organized way.',
+
+    'landing_page_testemonial1_role' => 'Real Estate Investor',
+    'landing_page_testemonial1_content' => 'It transformed the way I manage my 15 properties. Before, I wasted hours with spreadsheets, now everything is organized and accessible.',
+
+    'landing_page_testemonial2_role' => 'Real Estate Agent',
+    'landing_page_testemonial2_content' => 'Intuitive and complete system. My clients love the transparency in the reports, and I save time every day.',
+
+    'landing_page_testemonial3_role' => 'Owner',
+    'landing_page_testemonial3_content' => "The payment alert feature reduced my tenants' delinquency by 80%. I highly recommend it!",
+
+    'landing_page_faq1_question' => 'Can I try it for free?',
+    'landing_page_faq1_answer' => "Yes!' We offer a 14-day trial period with access to all features, no credit card required.",
+
+    'landing_page_faq2_question' => 'Is it suitable for real estate agencies?',
+    'landing_page_faq2_answer' => 'Absolutely, serving everyone from individual owners to large real estate companies.',
+
+    'landing_page_faq3_question' => 'How does support work?',
+    'landing_page_faq3_answer' => 'Our support team is available via chat and email during business hours to help with any technical or operational questions.',
 ];
