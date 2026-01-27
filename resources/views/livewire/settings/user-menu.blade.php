@@ -41,7 +41,7 @@ new class extends Component {
         </x-slot:trigger>
         <x-mary-menu-item :title="__('Settings')" icon="s-cog-6-tooth" :link="route('settings.profile')" />
         <x-mary-menu-item :title="__('Repository')" icon="fab.github"
-            link="https://github.com/higorjsilva/laravel-mary-ui-template" external />
+            link="https://github.com/higorjsilva/controle-aluguel" external />
         <x-mary-menu-item :title="__('Documentation')" icon="s-book-open" link="https://laravel.com/docs/starter-kits"
             external />
         <x-mary-menu-separator />
