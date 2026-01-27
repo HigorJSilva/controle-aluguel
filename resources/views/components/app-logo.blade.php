@@ -1,4 +1,4 @@
-<div class="flex aspect-square size-8 items-center justify-center rounded-md bg-accent text-accent-content">
+<div class="flex aspect-square size-8 items-center justify-center rounded-md">
     <x-app-logo-icon class="size-5 fill-current text-base-200" />
 </div>
 <div class="ms-1 grid flex-1 text-start text-sm">
