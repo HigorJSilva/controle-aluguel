@@ -1,0 +1,81 @@
+services:
+  controle_aluguel:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: meuapp_php
+    restart: unless-stopped
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - cnetwork
+      - internal
+  
+  nginx:
+    image: nginx:alpine
+    container_name: meuapp_nginx
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - controle_aluguel
+    networks:
+      - cnetwork
+      - internal
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.meuapp.rule=Host(`meu-app.local`)"
+      - "traefik.http.routers.meuapp.entrypoints=web"
+
+  scheduler:
+    build: .
+    container_name: controle_aluguel_scheduler
+    restart: unless-stopped
+    working_dir: /var/www/html
+    command: php artisan schedule:work
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - controle_aluguel
+    networks:
+      - internal
+      - cnetwork
+
+  worker:
+    build: .
+    container_name: controle_aluguel_worker
+    restart: unless-stopped
+    working_dir: /var/www/html
+    command: php artisan queue:work --tries=3
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - internal
+      - cnetwork
+
+  traefik:
+    image: traefik:v2.11
+    container_name: traefik
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080" # Dashboard
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    networks:
+      - cnetwork
+
+networks:
+  cnetwork:
+    external: true
+  internal:
+    driver: bridge
