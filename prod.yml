@@ -7,7 +7,9 @@ services:
     restart: unless-stopped
     working_dir: /var/www/html
     volumes:
-      - ./:/var/www/html
+      - ./storage:/var/www/html/storage
+      - ./.env:/var/www/html/.env
+      - ./public/build:/var/www/html/public/build
     networks:
       - cnetwork
       - internal
@@ -26,7 +28,7 @@ services:
       - internal
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.controle_aluguel.rule=Host(`seu-dominio.com.br`)"
+      - "traefik.http.routers.controle_aluguel.rule=Host(`controle-aluguel.higorsilva.dev`)"
       - "traefik.http.routers.controle_aluguel.entrypoints=websecure"
       - "traefik.http.routers.controle_aluguel.tls.certresolver=myresolver"
       - "traefik.http.services.controle_aluguel.loadbalancer.server.port=80"
