@@ -6,7 +6,8 @@ services:
     environment:
       - CONTAINER_ROLE=ALL
     volumes:
-      - .:/var/www/app
+      - ./storage:/var/www/app/storage
+      - ./public/storage:/var/www/app/public/storage
     networks:
       - cnetwork
     # ports:
@@ -16,7 +17,7 @@ services:
       - "traefik.http.routers.controle_aluguel.rule=Host(`controle-aluguel.higorsilva.dev`)"
       - "traefik.http.routers.controle_aluguel.entrypoints=websecure"
       - "traefik.http.routers.controle_aluguel.tls.certresolver=myresolver"
-      - "traefik.http.services.controle_aluguel.loadbalancer.server.port=80"
+      - "traefik.http.services.controle_aluguel.loadbalancer.server.port=8080"
 networks:
   cnetwork:
     external: true

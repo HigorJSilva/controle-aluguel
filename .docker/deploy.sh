@@ -4,13 +4,13 @@ set -e
 echo "Iniciando tarefas de deploy..."
 echo "=========Sou o usuário: $(whoami)==============="
 
+# yarn install --prod && yarn build
+# composer install --no-dev
+
+# rm -rf /var/www/app/public/hot
+
 php artisan optimize
-
-yarn install --prod && yarn build
-composer install --no-dev
-
-rm -rf /var/www/app/public/hot
-
+php artisan migrate --force
 php artisan config:cache
 php artisan event:cache
 php artisan route:cache
