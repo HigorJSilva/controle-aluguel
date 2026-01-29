@@ -1,0 +1,27 @@
+name: "VPS Deploy"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: appleboy/ssh-action@v1.0.3
+        name: "Service update and rebuild"
+        with:
+          host: "132.226.94.168"
+          username: "ubuntu"
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd ~/controle_aluguel/controle-aluguel
+            git pull origin main
+            docker compose exec app bash -c "php artisan optimize"
+            docker compose exec app bash -c "php artisan migrate --force"
+            docker compose exec app bash -c "php artisan config:cache"
+            docker compose exec app bash -c "php artisan event:cache"
+            docker compose exec app bash -c "php artisan route:cache"
+            docker compose exec app bash -c "php artisan view:cache"
