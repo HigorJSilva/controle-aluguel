@@ -1,11 +1,11 @@
 services:
     laravel.test:
         build:
-            context: './vendor/laravel/sail/runtimes/8.4'
+            context: ./vendor/laravel/sail/runtimes/8.4
             dockerfile: Dockerfile
             args:
                 WWWGROUP: '${WWWGROUP}'
-        image: 'sail-8.4/app'
+        image: sail-8.4/app
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:
@@ -23,18 +23,20 @@ services:
             - sail
         depends_on:
             - pgsql
+            - redis
     node:
-        image: node:20-alpine
+        image: 'node:20-alpine'
         container_name: laravel-node
         volumes:
-            - ./:/var/www/html
+            - './:/var/www/html'
         working_dir: /var/www/html
         ports:
-            - "5173:5173"
-        entrypoint: ["/bin/sh", "-c"]
-        command: [
-            "yarn install && yarn run dev -- --port 5173 --host 0.0.0.0"
-        ]
+            - '5173:5173'
+        entrypoint:
+            - /bin/sh
+            - '-c'
+        command:
+            - 'yarn install && yarn run dev -- --port 5173 --host 0.0.0.0'
         networks:
             - sail
     pgsql:
@@ -51,6 +53,7 @@ services:
             - './vendor/laravel/sail/database/pgsql/create-testing-database.sql:/docker-entrypoint-initdb.d/10-create-testing-database.sql'
         networks:
             - sail
+            - cnetwork
         healthcheck:
             test:
                 - CMD
@@ -62,9 +65,29 @@ services:
                 - '${DB_USERNAME}'
             retries: 3
             timeout: 5s
+    redis:
+        image: 'redis:alpine'
+        ports:
+            - '${FORWARD_REDIS_PORT:-6379}:6379'
+        volumes:
+            - 'sail-redis:/data'
+        networks:
+            - sail
+            - cnetwork
+        healthcheck:
+            test:
+                - CMD
+                - redis-cli
+                - ping
+            retries: 3
+            timeout: 5s
 networks:
     sail:
         driver: bridge
+    cnetwork:
+        external: true
 volumes:
     sail-pgsql:
+        driver: local
+    sail-redis:
         driver: local
