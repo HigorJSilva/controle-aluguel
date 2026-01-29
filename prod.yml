@@ -1,0 +1,22 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - CONTAINER_ROLE=ALL
+    volumes:
+      - .:/var/www/app
+    networks:
+      - cnetwork
+    # ports:
+    #   - 8080:8080
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.controle_aluguel.rule=Host(`controle-aluguel.higorsilva.dev`)"
+      - "traefik.http.routers.controle_aluguel.entrypoints=websecure"
+      - "traefik.http.routers.controle_aluguel.tls.certresolver=myresolver"
+      - "traefik.http.services.controle_aluguel.loadbalancer.server.port=80"
+networks:
+  cnetwork:
+    external: true
