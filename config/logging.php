@@ -84,6 +84,11 @@ return [
             'replace_placeholders' => true,
         ],
 
+        'sentry' => [
+            'driver' => 'sentry',
+            'level' => 'info',
+        ],
+
         'papertrail' => [
             'driver' => 'monolog',
             'level' => env('LOG_LEVEL', 'debug'),
