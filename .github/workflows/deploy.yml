@@ -19,9 +19,13 @@ jobs:
           script: |
             cd ~/controle_aluguel/controle-aluguel
             git pull origin main
-            docker compose exec app bash -c "php artisan optimize"
-            docker compose exec app bash -c "php artisan migrate --force"
-            docker compose exec app bash -c "php artisan config:cache"
-            docker compose exec app bash -c "php artisan event:cache"
-            docker compose exec app bash -c "php artisan route:cache"
-            docker compose exec app bash -c "php artisan view:cache"
+
+            docker compose -f prod.yml build app
+            docker compose -f prod.yml up -d app
+
+            docker compose -f prod.yml exec -T app php artisan optimize
+            docker compose -f prod.yml exec -T app php artisan migrate --force
+            docker compose -f prod.yml exec -T app php artisan config:cache
+            docker compose -f prod.yml exec -T app php artisan event:cache
+            docker compose -f prod.yml exec -T app php artisan route:cache
+            docker compose -f prod.yml exec -T app php artisan view:cache
