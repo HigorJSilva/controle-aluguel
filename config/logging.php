@@ -84,6 +84,11 @@ return [
             'replace_placeholders' => true,
         ],
 
+        'sentry_logs' => [
+            'driver' => 'sentry_logs',
+            'level' => 'info',
+        ],
+
         'sentry' => [
             'driver' => 'sentry',
             'level' => 'info',

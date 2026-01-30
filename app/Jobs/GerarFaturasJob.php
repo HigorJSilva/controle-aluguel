@@ -9,6 +9,7 @@ use App\Models\Locacao;
 use Carbon\Carbon;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
+use Illuminate\Support\Facades\Log;
 
 final class GerarFaturasJob implements ShouldQueue
 {
@@ -23,7 +24,7 @@ final class GerarFaturasJob implements ShouldQueue
     {
         $hoje = Carbon::today();
 
-        echo "Iniciando geração de faturas para: {$hoje->format('d/m/Y')}";
+        Log::channel('sentry_logs')->info("Iniciando geração de faturas para: {$hoje->format('d/m/Y')}");
 
         $locacoesParaProcessar = Locacao::query()
             ->where('status', true)
@@ -46,6 +47,6 @@ final class GerarFaturasJob implements ShouldQueue
             $count++;
         }
 
-        echo "Processo finalizado. {$count} faturas geradas.";
+        Log::channel('sentry_logs')->info("Processo finalizado. {$count} faturas geradas.");
     }
 }

@@ -9,6 +9,7 @@ use App\Models\Pagamento;
 use Carbon\Carbon;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
+use Illuminate\Support\Facades\Log;
 
 final class GerarVencimentoFaturasJob implements ShouldQueue
 {
@@ -28,7 +29,7 @@ final class GerarVencimentoFaturasJob implements ShouldQueue
     public function handle(): void
     {
         $hoje = Carbon::today()->format('Y-m-d');
-        echo "Iniciando vencimento de faturas para: {$hoje}";
+        Log::channel('sentry_logs')->info("Iniciando vencimento de faturas para: {$hoje}");
 
         $pagamentos = Pagamento::query()
             ->whereNotIn('status', [StatusPagamentos::RECEBIDO, StatusPagamentos::RECEBIDO_PARCIALMENTE, StatusPagamentos::CANCELADO])
@@ -43,6 +44,6 @@ final class GerarVencimentoFaturasJob implements ShouldQueue
             $count++;
         }
 
-        echo "Processo finalizado. {$count} faturas geradas.";
+        Log::channel('sentry_logs')->info("Processo finalizado. {$count} faturas geradas.");
     }
 }
