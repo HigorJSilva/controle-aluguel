@@ -1,5 +1,7 @@
 <?php
 
+use App\Actions\Servicos\CreateServico;
+use App\DTO\Servico\CreateServicoDTO;
 use App\Enums\TiposServico;
 use App\Helpers\Formatacao;
 use App\Rules\CnpjCpfRule;
@@ -15,6 +17,7 @@ new class extends Component
     public string $nome = '';
     public string $documento = '';
     public string $tipoServico = '';
+    public ?string $endereco = null;
     public ?string $telefone = null;
     public ?string $observacao = null;
     public array $tipos = [];
@@ -23,10 +26,10 @@ new class extends Component
     {
         return [
             'nome' => ['required', 'string', 'min:3', 'max:255'],
-            'documento' => ['required', 'string', new CnpjCpfRule],
+            'documento' => ['string', new CnpjCpfRule],
             'telefone' => ['nullable', 'string'],
-            'tipoServico' => ['nullable', 'string'],
-            'email' => ['nullable', 'email'],
+            'tipoServico' => ['required', 'string'],
+            'endereco' => ['nullable', 'string', 'max:1000'],
             'observacao' => ['nullable', 'string', 'max:1000'],
         ];
     }
@@ -40,14 +43,14 @@ new class extends Component
     {
         $validateFields = $this->validate();
 
-        $ok = Formatacao::retornarDigitos(['documento' => $validateFields['documento'], 'telefone' => $validateFields['telefone']]);
+        $formated = Formatacao::retornarDigitos(['documento' => $validateFields['documento'], 'telefone' => $validateFields['telefone']]);
 
-        $payload = array_merge($validateFields, $ok);
+        $payload = array_merge($validateFields, $formated);
         $payload['userId'] = Auth::user()->id;
 
         $servicoDto = new CreateServicoDTO(...$payload);
 
-        $servico = CreateServicoDTO::run($servicoDto);
+        $servico = CreateServico::run($servicoDto);
 
         if (!$servico) {
             $this->error('messages.error_on_create', timeout: 5000);
@@ -83,7 +86,7 @@ new class extends Component
                         :options="$tipos"
                         option-value="id"
                         option-label="name"
-                        wire:model="tipo" />
+                        wire:model="tipoServico" />
 
                     <x-mary-input :label="__('messages.input_services_document_label')" :placeholder="__('messages.input_services_document_placeholder')" wire:model.blur="documento" x-mask:dynamic="
                                                         $input.replace(/\D/, '').length !== 13
@@ -94,6 +97,10 @@ new class extends Component
                             $input[5] == 9
                                 ? '(99) 99999-9999' 
                                 : '(99) 9999-9999'" />
+
+                    <div class="md:col-span-2">
+                        <x-mary-input class="col-span-2" :label="__('messages.input_services_endereco_label')" :placeholder="__('messages.input_services_endereco_placeholder')" wire:model.fill="endereco" />
+                    </div>
 
                     <div class=" md:col-span-2">
                         <x-mary-textarea :label="__('messages.input_services_obs_label')" :placeholder="__('messages.input_services_obs_placeholder')" wire:model="observacao" :rows=6 />
