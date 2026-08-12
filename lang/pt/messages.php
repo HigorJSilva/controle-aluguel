@@ -215,6 +215,15 @@ return [
     'dashboard_next_payments_subtitle' => ' pagamentos pendentes',
     'dashboard_incoming_income_subtitle' => 'Projeção para Fevereiro',
 
+    'services_index_title' => 'Prestadores de Serviço',
+    'services_index_subtitle' => '',
+    'new_services_button' => 'Novo Prestador',
+    'input_services_search' => 'Procure por nome ou documento',
+    'services_index_tipo_servico' => 'Tipo de serviço',
+    'select_services_tipo_servico' => 'Selecione o tipo de serviço prestado',
+    'delete_services_modal_title' => 'Remover Prestador de serviço?',
+    'delete_services_modal_subtitle' => 'Tem certeza? Esta ação não poderá ser desfeita.',
+
     'landing_page_title1' => 'Gestão de Aluguéis',
     'landing_page_title2' => 'Simples e Inteligente',
     'landing_page_subtitle' => 'Abandone as planilhas. Centralize imóveis, inquilinos e financeiro em uma plataforma moderna feita para proprietários e imobiliárias.',

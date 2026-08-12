@@ -8,12 +8,12 @@ enum TiposServico: string
 {
     case ENCANADOR = 'Encanador';
     case ELETRICISTA = 'Eletricista';
-    case PINTOR =  'Pintor';
+    case PINTOR = 'Pintor';
     case PEDREIRO = 'Pedreiro';
     case DIARISTA = 'Faxineiro/Diarista';
     case JARDINEIRO = 'Jardineiro';
-    case GERAIS =  'Serviços Gerais';
-    case OUTRO =  'Outro';
+    case GERAIS = 'Serviços Gerais';
+    case OUTRO = 'Outro';
 
     public static function all(string $key = 'id', string $value = 'name'): array
     {
@@ -32,14 +32,14 @@ enum TiposServico: string
     public function label(): string
     {
         return match ($this) {
-            self::ENCANADOR => "Encanador",
-            self::ELETRICISTA => "Eletricista",
-            self::PINTOR =>  "Pintor",
-            self::PEDREIRO => "Pedreiro",
-            self::DIARISTA => "Faxineiro/Diarista",
-            self::JARDINEIRO => "Jardineiro",
-            self::GERAIS =>  "Serviços Gerais",
-            self::OUTRO =>  "Outro",
+            self::ENCANADOR => 'Encanador',
+            self::ELETRICISTA => 'Eletricista',
+            self::PINTOR => 'Pintor',
+            self::PEDREIRO => 'Pedreiro',
+            self::DIARISTA => 'Faxineiro/Diarista',
+            self::JARDINEIRO => 'Jardineiro',
+            self::GERAIS => 'Serviços Gerais',
+            self::OUTRO => 'Outro',
         };
     }
 }
