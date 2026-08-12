@@ -5,4 +5,5 @@
     <x-mary-menu-item title="Inquilinos" icon="lucide.users-round" :link="route('inquilinos.index')" wire:navigate/>
     <x-mary-menu-item title="Locações" icon="lucide.file-signature" :link="route('locacoes.index')" wire:navigate/>
     <x-mary-menu-item title="Pagamentos" icon="lucide.badge-dollar-sign" :link="route('pagamentos.index')" wire:navigate/>
+    <x-mary-menu-item title="Serviços" icon="o-wrench-screwdriver" :link="route('servicos.index')" wire:navigate/>
 </x-mary-menu>
