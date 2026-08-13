@@ -56,6 +56,13 @@ Route::middleware(['auth'])->group(function () {
         Volt::route('/{pagamento}/edit', 'pages.pagamentos.edit')->name('edit');
         Volt::route('/{pagamento}', 'pages.pagamentos.show')->name('show');
     });
+
+    Route::prefix('servicos')->name('servicos.')->group(function () {
+        Volt::route('/', 'pages.servicos.index')->name('index');
+        Volt::route('/create', 'pages.servicos.create')->name('create');
+        Volt::route('/{servico}/edit', 'pages.servicos.edit')->name('edit');
+        Volt::route('/{servico}', 'pages.servicos.show')->name('show');
+    });
 });
 
 require __DIR__ . '/auth.php';
