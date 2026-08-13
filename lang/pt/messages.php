@@ -237,6 +237,8 @@ return [
     'input_services_obs_label' => 'Observação',
     'input_services_obs_placeholder' => 'Numeros de contato, chave pix ou outras informações importantes',
 
+    'services_edit_title' => 'Altere os dados do Prestador de serviços',
+
     'landing_page_title1' => 'Gestão de Aluguéis',
     'landing_page_title2' => 'Simples e Inteligente',
     'landing_page_subtitle' => 'Abandone as planilhas. Centralize imóveis, inquilinos e financeiro em uma plataforma moderna feita para proprietários e imobiliárias.',
